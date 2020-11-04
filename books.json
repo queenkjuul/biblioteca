@@ -1,0 +1,25 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "title": "Brave New World",
+            "author": "Aldous Huxley",
+            "pubDate": "1932",
+            "pages": 311
+        },
+        {
+            "id": 2,
+            "title": "Farenheit 451",
+            "author": "Ray Bradbury",
+            "pubDate": "10/19/1953",
+            "pages": 256
+        },
+        {
+            "id": 3,
+            "title": "The Hitchiker's Guide to the Galaxy",
+            "author": "Douglas Adams",
+            "pubdate": "10-12-1979",
+            "pages": 160
+        }
+    ]
+}

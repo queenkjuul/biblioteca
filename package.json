@@ -19,5 +19,8 @@
   "homepage": "https://github.com/TechtonicAcademy/library-phase-one-assignment-2020-jhillTechtonic#readme",
   "dependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "sass": "^1.28.0"
   }
 }
