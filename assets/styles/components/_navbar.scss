@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1080px;
+    justify-content: space-around;
+    align-items: center;
+    // position: fixed;
+
+    & ul, & li {
+        display: inline;
+    }
+
+    &__search {
+        display: inline;
+    }
+
+    &__search--input {
+        display: inline;
+        min-width: 200px;
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid $navbar__search--input-border-color;
+    }
+}
+
