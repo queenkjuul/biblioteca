@@ -20,6 +20,12 @@
  
     cursor: pointer;
     border: 2px solid transparent;
+
+    & a {
+        text-decoration: none;
+        color: inherit;
+        font-family: inherit;
+    }
         
     &:hover {
         background-color: $btn--default-hover-background-color;
@@ -39,6 +45,9 @@
         font-size: 1rem;
         margin: 0;
         padding: 0;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-bottom: 4px solid transparent;
 
         &--search {
             display: inline-block;
@@ -60,6 +69,13 @@
             background-color: transparent;
             border: 2px solid transparent;
         }
+
+        &--active, &--active:hover{
+            border-radius: 0;
+            border-bottom: 4px solid $btn--default-hover-text-color;
+        }
+
+
     }
 
 }
