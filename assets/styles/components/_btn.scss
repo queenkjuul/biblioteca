@@ -5,41 +5,31 @@
     color: $btn--default-text-color;
     background-color: $btn--default-background-color;
     
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2vw;
+    font-family: $btn--default-font-family;
+    font-size: $btn--default-font-size;
 
     border: 2px hidden;
-    border-radius: 5px;
-    padding: 1vw 50px;
+    border-radius: $btn--default-border-radius;
+    padding: $btn--default-padding-y $btn--default-padding-x;
     text-align: center;
     justify-content: center;
+
+    min-width: 5rem;
+    max-width: 25rem;
 
  
     cursor: pointer;
     border: 2px solid transparent;
-    // font-family: "Avenir Next", "Avenir", "Helvetica", sans-serif;
         
     &:hover {
         background-color: $btn--default-hover-background-color;
         color: $btn--default-hover-text-color;
         border: 2px solid $btn--default-hover-border-color;
-        text-shadow: 0 0 4px #fff;
+        @include glow(4px, $btn--default-hover-text-color);
     }
-    
-    &--badge {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-size: 2rem;
-        font-variant: small-caps;
-        border: 0px solid white;
-        background-color: transparent;
-        overflow: hidden;
-        white-space: nowrap;
-        
-        &:hover {
-            text-shadow: 0 0 10px #fff;
-            border: 0px solid white;
-            background-color: transparent;
-        }
+
+    &--secondary {
+        background-color: $btn--secondary-background-color;
     }
     
     &__navbar {
@@ -47,13 +37,13 @@
         background-color: transparent;
         white-space: nowrap;
         font-size: 1rem;
-        padding: 5px 25px;
+        margin: 0;
+        padding: 0;
 
         &--search {
-            display: inline;
-            margin: 0 5px;
+            display: inline-block;
+            margin: 0 1vw;
             background-color: $header-background-color;
-            // background-color: transparent;
             border: 2px solid $btn--default-background-color;
             font-weight: 700;
             font-size: 0.75rem;
@@ -61,8 +51,6 @@
             
             &:hover {
                 background-color: $btn--default-background-color;
-                // color: $btn__navbar--search-hover-text-color;
-                // text-shadow: none;
                 border: 2px solid transparent;
             }
         }
@@ -70,13 +58,8 @@
         &:hover {
             color: $btn__navbar-hover-background-color;
             background-color: transparent;
-            // border: 2px solid $btn__navbar-hover-border-color;
             border: 2px solid transparent;
         }
-    }
-    
-    &__secondary {
-        background-color: #5ca1d3;
     }
 
 }

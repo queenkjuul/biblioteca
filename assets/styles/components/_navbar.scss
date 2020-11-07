@@ -2,25 +2,106 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1080px;
+    max-width: $main--max-width;
     justify-content: space-around;
     align-items: center;
-    // position: fixed;
 
-    & ul, & li {
-        display: inline;
+    @include until($main--phone-width) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+
+    @include until($main--phone-width) {
+        flex-direction: column;
+    }
+
+    &__badge {
+        font-family: $navbar__badge-font-family;
+        font-size: 2rem;
+        font-variant: small-caps;
+        color: $navbar__badge-text-color;
+        border: 0px solid white;
+        background-color: transparent;
+        overflow: hidden;
+        white-space: nowrap;
+        min-width: 210px;
+
+        @include until($main--phone-width) {
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        @include until($main--desktop-width) {
+            margin-left: 1vw;
+            padding: 0;
+        }
+        
+        &:hover {
+            @include glow(10px, $navbar__badge-text-color);
+            border: 0px solid white;
+            background-color: transparent;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        @include until($main--tablet-width) {
+            display: none;
+        }
+
+        @include until($main--desktop-width) {
+            justify-content: space-evenly;
+        }
+    }
+
+    & li {
+        display: block;
+        margin: 0 1vw;
     }
 
     &__search {
-        display: inline;
+        display: flex;
+        align-items: center;
+        margin-right: 1vw;
+
+        @include until($main--phone-width) {
+            display: none;
+        }
+
+        @include until($main--tablet-width) {
+            margin-right: 0;
+        }
     }
 
     &__search--input {
         display: inline;
-        min-width: 200px;
-        border-radius: 5px;
-        padding: 5px;
+        align-self: baseline;
+        min-width: 150px;
+        border-radius: $textbox-border-radius;
+        padding: 6px;
         border: 1px solid $navbar__search--input-border-color;
+
+        @include until($main--desktop-width) {
+            margin: 10px 0;
+        }
+    }
+
+    &__hamburger {
+        display: inline-block;
+        padding: 5px 8px;
+        margin: 0;
+        width: 25px;
+        min-width: 0;
+        max-width: 3rem;
+        margin-right: 10px;
+
+        @include atleast($main--tablet-width) {
+            display: none;
+        }
     }
 }
 

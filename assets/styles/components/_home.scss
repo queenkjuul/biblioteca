@@ -1,10 +1,10 @@
 .mainContainer {
     display: grid;
-    flex-direction: column;
     height: calc(100vh - 6rem);
-    grid-template-rows: 1fr 1fr 3rem;
+    grid-template-rows: auto 1fr auto;
     align-items: flex-start;
-    justify-content: start;
+    justify-content: stretch;
+    line-height: normal;
 }
 
 .welcomeBanner {
@@ -12,7 +12,7 @@
     background-image: url('../images/reading-room.jpg');
     background-size: cover;
     background-position: center center;
-    padding: 100px 0;
+    padding: 8vmin 0;
     width: 100%;
 
     grid-row: 1;
@@ -24,44 +24,96 @@
     text-align: center;
     text-shadow: 1px 1px 5px black;
 
+    
+        margin-top: 2rem;
+
+
     & h1 {
         font-size: 6rem;
         font-size: 15vw;
-        line-height: 0.1;
+
+        @include until($main--phone-width) {
+            font-size: max(20vw, 80px)
+        }
+
+        @include atleast($main--phone-width) {
+            font-size: max(100px, 15vw)
+        }
+
+        @include atleast($main--desktop-width) {
+            font-size: min(200px, 15vw);
+        }
+
     }
     & h2 {
         font-size: 3rem;
         font-size: 4vw;
+
+        @include until($main--phone-width) {
+            font-size: max(30px, 3vw);
+        }
+
+        @include atleast($main--desktop-width) {
+            font-size: min(70px, 4vw);
+        }
     }
 }
 
 .homepage {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     margin: auto;
-    width: 67%;
-
+    width: 100%;
     grid-row: 2;
     grid-column: 1 / end;
-
-    // justify-content: space-between;
-    // align-items: center;
-
-    // padding: 50px;
-
+    
     text-align: center;
 
+
+    & * {
+        margin-top: 2vw;
+    }
+
     & h1 {
-        font-size: 5vw;
+        font-size: 3vw;
         font-style: italic;
-        padding: 0 0 5px;
+        padding: 0 0 1vw;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
+
+        @include until($main--tablet-width) {
+            font-size: min(4vw, 35px);
+            padding-bottom: 1vw;
+        }
+
+        @include atleast($main--tablet-width) {
+            font-size: max(4vw, 40px);
+        }
+
+        @include atleast($main--desktop-width) {
+            font-size: 45px;
+            padding: 0 0 10px;
+        }
+
     }
 
     & p {
-        font-size: 3vw;
+        font-size: 2vw;
+        width: 67%;
+
+        @include until($main--phone-width) {
+            font-size: min(16px);
+        }
+
+        @include between($main--phone-width, $main--desktop-width) {
+            font-size: max(3vw, 18px);
+        }
+
+        @include atleast($main--desktop-width) {
+            font-size: 22px;
+            padding: 0px 100px;
+            width: 50%;
+        }
     }
 }

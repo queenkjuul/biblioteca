@@ -1,0 +1,59 @@
+// BREAKPOINTS
+
+$main--max-width: 1080px;
+
+$main--desktop-width: 1080px;
+$main--tablet-width: 768px;
+$main--phone-width: 500px;
+
+
+
+
+// COLORS
+
+$btn--default-background-color: #5ca1d3;
+$btn--default-text-color: #fff;
+$btn--default-border-color: #fff;
+$btn--default-hover-background-color: #5a80a1;
+$btn--default-hover-text-color: white;
+$btn--default-hover-border-color: #333;
+
+$btn--secondary-background-color: #5ca1d3;
+
+
+$btn__navbar-color-inactive: #ddd;
+$btn__navbar-hover-background-color: #fff;
+$btn__navbar-hover-border-color: #bbb;
+
+$btn__navbar--search-hover-text-color: white;
+
+$navbar__badge-text-color: white;
+
+$navbar__search--input-border-color: #333;
+
+$header-background-color: #5a80a1;
+
+$welcomeBanner--header-text-color: white;
+
+$footer--background-color: #fee;
+
+// FONTS
+
+$font-stack-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-stack-serif: Georgia, 'Times New Roman', Times, serif;
+
+$font-size-default: 16px;
+
+$navbar__badge-font-family: $font-stack-serif;
+
+$btn--default-font-family: $font-stack-sans;
+$btn--default-font-size: min(2vw, 16px);
+
+
+// CONTROL PARAMETERS
+
+$textbox-border-radius: 5px;
+
+$btn--default-border-radius: 5px;
+$btn--default-padding-x: 50px;
+$btn--default-padding-y: 5px;
