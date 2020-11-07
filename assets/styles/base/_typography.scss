@@ -1,0 +1,23 @@
+h1 {
+    font-size: 3vw;
+    font-style: italic;
+    padding: 0 0 1vw;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+
+    @include until($main--tablet-width) {
+        font-size: min(7vw, 55px);
+        padding-bottom: 1vw;
+    }
+
+    @include atleast($main--tablet-width) {
+        font-size: max(4vw, 40px);
+    }
+
+    @include atleast($main--desktop-width) {
+        font-size: 45px;
+        padding: 0 0 10px;
+    }
+
+}

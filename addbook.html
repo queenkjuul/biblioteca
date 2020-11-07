@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>La Biblioteca</title>
+    <link rel="stylesheet" href="assets/styles/index.scss">
 </head>
-<body>
-    
-</body>
-</html>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="navbar__badge btn">La Biblioteca</div>
+                <ul class="navbar__menu">
+                    <li class="btn btn__navbar"><a href="index.html">Home</a></li>
+                <li class="btn btn__navbar"><a href="bookshelf.html" alt="Go to the Bookshelf">Bookshelf</a></li>
+                <li class="btn btn__navbar btn__navbar--active"><a href="addbook.html">Add Book</a></li>
+                </ul>
+                <form class="navbar__search">
+                    <input class="navbar__search--input" type="text" id="navbar__search" placeholder="Search for book or author">
+                    <button class="btn btn__navbar--search">Search</button>
+                </form>
+            </nav>
+            <div class="navbar__hamburger btn">X</div>
+        </header>
+    </body>

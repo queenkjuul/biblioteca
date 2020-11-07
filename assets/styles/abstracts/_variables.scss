@@ -21,7 +21,7 @@ $btn--default-hover-border-color: #333;
 $btn--secondary-background-color: #5ca1d3;
 
 
-$btn__navbar-color-inactive: #ddd;
+$btn__navbar-color-inactive: #fff;
 $btn__navbar-hover-background-color: #fff;
 $btn__navbar-hover-border-color: #bbb;
 
@@ -36,6 +36,9 @@ $header-background-color: #5a80a1;
 $welcomeBanner--header-text-color: white;
 
 $footer--background-color: #fee;
+
+$bookshelf--background-color: #ddd;
+$bookshelf__card--border-color: black;
 
 // FONTS
 
@@ -57,3 +60,5 @@ $textbox-border-radius: 5px;
 $btn--default-border-radius: 5px;
 $btn--default-padding-x: 50px;
 $btn--default-padding-y: 5px;
+
+$bookshelf__card--border-size: 2px;

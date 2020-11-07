@@ -17,7 +17,29 @@
 }
 
 
-@mixin glow($radius, $color) {
-    text-shadow: 0 0 $radius $color;
+@mixin glow($radius:0, $color:white, $duration: 0.15s) {
+    // usage: 
+
+    //     .base_class {
+    //         @include glow(); //no arguments here
+
+    //         &:psuedo-class {
+    //             @include glow(radius, color, [duration]) //default duration is 0.15s
+    //         }
+    //     }
+
+    // we need a "transition: " block in each location or else the animation will 
+    // only play one direction. We need the shadow line in only the "destination"
+    // identifier to ensure it doesn't glow forever
+
+    @if $radius != 0 {
+        text-shadow: 0 0 $radius $color;
+    };
+
+    transition: text-shadow $duration;
+}
+
+@mixin cardHighlight($duration: 0.2s) {
+    transition: background-image $duration, border $duration, box-shadow $duration;
 }
 

@@ -1,0 +1,47 @@
+.bookshelf{
+    background-color: #eee;
+
+    &__pagetitle {
+        margin-top: 6rem;
+    }
+    
+    &__container {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 2vw;
+        grid-template-columns: repeat(3, 250px);
+        grid-template-rows: 400px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__card {
+        width: 200px;
+        height: 300px;
+        margin: 30px;
+        border-radius: 10px;
+        border: 1px solid #aaa;
+        box-shadow: 10px 10px 15px 5px #ddd;
+        background-color: white;
+        background-image: linear-gradient(to bottom right, #fff, rgba(250,250,250,1.0));
+        @include cardHighlight();
+        cursor: pointer;
+
+        &__1 {
+            content: "Hey I'm #1!";
+        }
+
+        & .coverImg {
+
+        }
+
+        &:hover, &:active, &:focus {
+            background-image: none;
+            border: 1px solid #888;
+            box-shadow: 10px 10px 20px 10px #ddd;
+            @include cardHighlight();
+            z-index: 100;
+            filter: none;
+        }
+    }
+}
