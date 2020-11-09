@@ -1,16 +1,16 @@
 .bookshelf{
-    background-color: #eee;
+    background-color: #f3f3f3;
 
     &__pagetitle {
-        margin-top: 6rem;
+        margin-top: 5rem;
     }
     
     &__container {
         display: flex;
         flex-flow: row wrap;
+        max-width: $main--max-width;
+        margin: auto;
         padding: 2vw;
-        grid-template-columns: repeat(3, 250px);
-        grid-template-rows: 400px;
         justify-content: center;
         align-items: center;
     }
@@ -27,12 +27,16 @@
         @include cardHighlight();
         cursor: pointer;
 
-        &__1 {
+        &__1:after {
             content: "Hey I'm #1!";
-        }
-
-        & .coverImg {
-
+            display: block;
+            margin: auto;
+            color: blue;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         &:hover, &:active, &:focus {
@@ -40,8 +44,6 @@
             border: 1px solid #888;
             box-shadow: 10px 10px 20px 10px #ddd;
             @include cardHighlight();
-            z-index: 100;
-            filter: none;
         }
     }
 }

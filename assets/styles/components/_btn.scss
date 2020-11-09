@@ -17,13 +17,13 @@
     min-width: 5rem;
     max-width: 25rem;
 
- 
     cursor: pointer;
     border: 2px solid transparent;
+    text-decoration: none;
 
     @include glow();
 
-    & a {
+    & a, a.btn {
         text-decoration: none;
         color: inherit;
         font-family: inherit;
@@ -47,9 +47,10 @@
         font-size: 1rem;
         margin: 0;
         padding: 0;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding: 2px 0 2px 0;
         border-bottom: 4px solid transparent;
+        display: block;
+        height: 100%;
 
         &--search {
             display: inline-block;

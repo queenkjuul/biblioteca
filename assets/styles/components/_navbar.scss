@@ -1,9 +1,10 @@
 .navbar {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     width: 100%;
     max-width: $main--max-width;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     @include until($main--phone-width) {
@@ -12,12 +13,13 @@
         align-items: flex-start;
     }
 
-
-    @include until($main--phone-width) {
-        flex-direction: column;
-    }
+    // & a, & a:hover, & a:visited, & a:active {
+    //     text-decoration: none;
+    // }
 
     &__badge {
+        display: block;
+        margin: auto 0 auto 0;
         font-family: $navbar__badge-font-family;
         font-size: 2rem;
         font-variant: small-caps;
@@ -26,17 +28,8 @@
         background-color: transparent;
         overflow: hidden;
         white-space: nowrap;
-        min-width: 210px;
-
-        @include until($main--phone-width) {
-            padding: 0;
-            margin-left: 10px;
-        }
-
-        @include until($main--desktop-width) {
-            margin-left: 1vw;
-            padding: 0;
-        }
+        min-width: 230px;
+        padding: 0 10px;
         
         &:hover {
             @include glow(10px, $navbar__badge-text-color);
@@ -60,12 +53,12 @@
 
     & li {
         display: block;
-        margin: 0 1vw;
     }
 
     &__search {
         display: flex;
         align-items: center;
+        align-self: center;
         margin-right: 1vw;
 
         @include until($main--phone-width) {
@@ -84,20 +77,18 @@
         border-radius: $textbox-border-radius;
         padding: 6px;
         border: 1px solid $navbar__search--input-border-color;
-
-        @include until($main--desktop-width) {
-            margin: 10px 0;
-        }
+        margin: 10px 0;
     }
 
     &__hamburger {
-        display: inline-block;
-        padding: 5px 8px;
-        margin: 0;
-        width: 25px;
-        min-width: 0;
-        max-width: 3rem;
-        margin-right: 10px;
+        display: block;
+        padding: 5px 10px;
+        margin: 10px 10px;
+        align-self: center;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+        
 
         @include atleast($main--tablet-width) {
             display: none;

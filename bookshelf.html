@@ -6,44 +6,110 @@
     <title>La Biblioteca</title>
     <link rel="stylesheet" href="assets/styles/index.scss">
 </head>
-    <body>
+    <body class="bookshelf">
         <header class="header">
             <nav class="navbar">
                 <div class="navbar__badge btn">La Biblioteca</div>
                 <ul class="navbar__menu">
-                    <li class="btn btn__navbar"><a href="index.html">Home</a></li>
-                <li class="btn btn__navbar btn__navbar--active"><a href="bookshelf.html" alt="Go to the Bookshelf">Bookshelf</a></li>
-                <li class="btn btn__navbar"><a href="addbook.html">Add Book</a></li>
+                    <li><a class="btn btn__navbar" href="index.html">Home</a></li>
+                    <li><a class="btn btn__navbar btn__navbar--active" href="bookshelf.html" alt="Go to the Bookshelf">Bookshelf</a></li>
+                    <li><a class="btn btn__navbar" href="addbook.html">Add Book</a></li>
                 </ul>
                 <form class="navbar__search">
                     <input class="navbar__search--input" type="text" id="navbar__search" placeholder="Search for book or author">
                     <button class="btn btn__navbar--search">Search</button>
                 </form>
+                <div class="navbar__hamburger">X</div>
             </nav>
-            <div class="navbar__hamburger btn">X</div>
         </header>
-    <main class="grid bookshelf">
-        <h1 class="bookshelf__pagetitle">Release the Kraken of Knowledge!</h1>
-        <section class="bookshelf bookshelf__container">
-            <div class="bookshelf__card card__1"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-            <div class="bookshelf__card"></div>
-        </section>
-        <footer class="footer">
-            © 2020 Her Majesty Queen Julia I
-        </footer>
-    </main>
+        <main class="grid">
+            <h1 class="bookshelf__pagetitle">Release the Kraken of Knowledge!</h1>
+            <section class="bookshelf bookshelf__container">
+                <!-- I do not like this at all. not one little bit. all these repeat static tags  -->
+                <!-- give me legitmate anxiety.  -->
+                <!--  -->
+                <!-- they will be dynamic soon -->
+                <!--  -->
+                <!-- ....right? -->
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+                <div class="bookshelf-card">
+                    <div class="bookshelf-card__coverimg"></div>
+                    <div class="bookshelf-card__title"></div>
+                    <div class="bookshelf-card__author"></div>
+                </div>
+            </section>
+            <footer class="footer">
+                © 2020 Her Majesty Queen Julia I
+            </footer>
+        </main>
     </body>
 </html>
