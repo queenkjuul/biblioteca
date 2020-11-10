@@ -1,19 +1,21 @@
 .bookshelf-card {
-    width: 200px;
-    height: 300px;
-    margin: 30px;
+    width: 180px;
+    margin: 15px;
+    padding: 25px;
     border-radius: 10px;
     border: 1px solid #aaa;
-    box-shadow: 10px 10px 15px 5px #ddd;
+    box-shadow: 10px 10px 12px 5px #ddd;
     background-color: white;
     background-image: linear-gradient(to bottom right, #fff, rgba(250,250,250,1.0));
     @include cardHighlight();
     cursor: pointer;
+    display: block;
+    
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 3;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 
 
     &:hover, &:active, &:focus {
@@ -24,38 +26,38 @@
     }
 
     &__coverimg {
-        
-
         border-radius: 10px;
 
         display: block;
+        height: 275px;
+        margin: 0 auto 10px;;
 
-        // background-image: url('../images/placeholder-cover.png');
-        // background-position: center center;
-        // background-size: contain;
-        // background-repeat: no-repeat;
-        // background-color: transparent;
-
-        background: no-repeat url('../images/placeholder-cover.png') 50% / 100%;
+        object-fit: contain;
     }
 
-    // &__coverimg:after {
-    //     display: block;
-    //     content: "";
-    //     width: 67%;
-    //     border: 1px solid black;
-    //     align-self: center;
-    //     text-align: center;
-    // }
+    &__title {
+        padding: 0;
+        font-size: 1.3em;
+        margin: 2px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 
-    &__title:after {
+    &__author::before {
+        content: '';
+        border-top: 1px solid black;
+        // margin-top: -5px;
+        padding-bottom: 8px;
         display: block;
-        content: "Brave New World";
-        color: black;
     }
 
-    &__author, &__author:after {
-
-        content: "Aldous Huxley";
+    &__author {
+        padding: 0;
+        font-style: italic;
+        margin: 2px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
