@@ -29,9 +29,10 @@
         min-width: 230px;
         padding: 0 10px;
         
-        &:hover {
+        &:hover, &:active {
             @include glow(10px, $navbar__badge-text-color);
             background-color: transparent;
+            border: 0px solid transparent;
         }
     }
 

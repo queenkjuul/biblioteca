@@ -6,20 +6,28 @@
     <title>Add Book - La Biblioteca</title>
     <link rel="stylesheet" href="assets/styles/index.scss">
 </head>
-    <body>
-        <header class="header">
-            <nav class="navbar">
-                <a href="index.html" class="navbar__badge btn">La Biblioteca</a>
-                <ul class="navbar__menu">
-                    <li><a class="btn btn__navbar" href="index.html">Home</a></li>
-                    <li><a class="btn btn__navbar" href="bookshelf.html" alt="Go to the Bookshelf">Bookshelf</a></li>
-                    <li><a class="btn btn__navbar btn__navbar--active" href="addbook.html">Add Book</a></li>
-                </ul>
-                <form class="navbar__search">
-                    <input class="navbar__search--input" type="text" id="navbar__search" placeholder="Search for book or author">
-                    <button class="btn btn__navbar--search">Search</button>
-                </form>
-                <div class="navbar__hamburger">X</div>
-            </nav>
-        </header>
+    <body id="body" class="book-form">
+        <script src="generateHeader.js"></script>
+        <main class="grid">
+            <article class="book-form__container">
+                <section class="book-form__card">
+                    <div class="book-form__item--header"></div>
+                    <div class="book-form__item--title"></div>
+                    <div class="book-form__item--author"></div>
+                    <div class="book-form__card--coverset">
+                        <div class="book-form__item--coverimg"></div>
+                        <div class="book-form__item--addimg"></div>
+                    </div>
+                    <div class="book-form__item--synopsis"></div>
+                    <div class="book-form__card--publishPage">
+                        <div class="book-form__item--publishDate"></div>
+                        <div class="book-form__item--pageCount"></div>
+                    </div>
+                    <div class="book-form__item--rating"></div>
+                    <div class="book-form__controls"></div>
+                </section>
+            </article>
+
+        </main>
     </body>
+</html>

@@ -36,6 +36,7 @@
         @extend %card__item;
 
         &--coverimg {
+            @extend .details__item;
             @extend %card__item--coverimg;
             display: block;
             max-width: 100%;
@@ -47,6 +48,7 @@
         }
 
         &--rating {
+            @extend .details__item;
             @extend %card__item--rating;
             border-top: 1px solid black;
             border-bottom: 1px solid black;
@@ -55,19 +57,26 @@
         }
 
         &--title {
+            @extend .details__item;
             font-size: 2rem;
             margin-top: 15px;
             margin-bottom: 5px;
+            padding-bottom: 10px;
             max-width: 600px;
+            border-bottom: 1px solid black;
             grid-area: title;
         }
 
         &--author {
+            @extend .details__item;
             font-size: 1.5rem;
+            margin: 0;
+            padding: 0;
             grid-area: author;
         }
 
         &--pageCount, &--publishDate {
+            @extend .details__item;
             font-style: italic;
             font-size: 0.8rem;
         }
@@ -81,6 +90,7 @@
         }
 
         &--synopsis {
+            @extend .details__item;
             @extend %card__item--synopsis;
             align-self: flex-start;
             @include atleast($main--tablet-width) {
