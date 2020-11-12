@@ -1,64 +1,101 @@
+// ___________
 // BREAKPOINTS
+// ===========
 
 $main--max-width: 1080px;
 
 $main--desktop-width: 1080px;
 $main--tablet-width: 780px;
-$main--phone-width: 550px;
+$main--phone-width: 546px;
+
+$details--max-width: 768px;
 
 
-
-
+// ______
 // COLORS
+// ======
 
+    //main
+$main--page-background-color: #f3f3f3;
+$main--text-color: black;
+
+    //btn
 $btn--default-background-color: #5ca1d3;
 $btn--default-text-color: #fff;
 $btn--default-border-color: #fff;
 $btn--default-hover-background-color: #5a80a1;
 $btn--default-hover-text-color: white;
 $btn--default-hover-border-color: #333;
+        //secondary
+$btn--secondary-background-color: #aaa;
+$btn--secondary-border-color: $btn--default-background-color;
+$btn--secondary-text-color: #333;
 
-$btn--secondary-background-color: #5ca1d3;
-
+        //navbar
 $btn__navbar-color-inactive: #fff;
 $btn__navbar-hover-background-color: #fff;
 $btn__navbar-hover-border-color: #bbb;
-
+            //navbar-search
 $btn__navbar--search-border-color: $btn--default-background-color;
 $btn__navbar--search-hover-text-color: white;
-
+$navbar__search--input-border-color: #333;
+            //navbar-badge
 $navbar__badge-text-color: white;
 
-$navbar__search--input-border-color: #333;
-
+    //header
 $header-background-color: #5a80a1;
 
+    //welcomeBanner
 $welcomeBanner--header-text-color: white;
 
+    //footer
 $footer--background-color: #fee;
 
+    //bookshelf
 $bookshelf--background-color: #ddd;
 $bookshelf__card--border-color: black;
 
+    //card
+$card--border-color: #ccc;
+$card--cover-border-color: #aaa;
+$card--background-color: white;
+
+
+// _____
 // FONTS
+// =====
 
 $font-stack-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-stack-serif: Georgia, 'Times New Roman', Times, serif;
 
 $font-size-default: 16px;
 
+    //navbar
 $navbar__badge-font-family: $font-stack-serif;
+$navbar__badge-font-size: 2rem;
 
+    //btn
 $btn--default-font-family: $font-stack-sans;
-$btn--default-font-size: min(2vw, 16px);
+$btn--default-font-size: min(16px);
+$btn--default-font-weight: 700;
 
 
+// __________________
 // CONTROL PARAMETERS
+// ==================
+
 
 $textbox-border-radius: 5px;
 
+    //btn
 $btn--default-border-radius: 5px;
 $btn--default-padding-x: 50px;
 $btn--default-padding-y: 5px;
 
+    //bookshelf
 $bookshelf__card--border-size: 2px;
+
+    //cards
+$card--cover-border-radius: 10px;
+$card--card-border-radius: 20px;
+$card--bookshelf-border-radius: 10px;

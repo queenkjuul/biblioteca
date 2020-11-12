@@ -1,0 +1,75 @@
+@mixin cardCommon() {
+    background-color: $card--background-color;
+    border-radius: $card--card-border-radius;
+    border: 1px solid $card--border-color;
+    margin: 15px;
+    padding: 25px;
+    color: $main--text-color;
+}
+
+@mixin cardHolderCommon() {
+    background-color: $main--page-background-color;
+}
+
+%card {
+    
+    &__container {
+        display: flex;
+        @include flex-column(space-between, center);
+        grid-template-rows: 5rem 1fr 3rem;
+        padding: 1rem;
+        @include until($main--tablet-width) {
+            align-items: center;
+        }
+    }
+
+    &__fullPageCard {
+        @include flex-column();
+        margin: auto;
+        text-align: center;
+
+        max-width: $main--max-width;
+        margin-top: 5rem;
+        margin-bottom: 0;
+        border-radius: $card--card-border-radius;
+        border: 1px solid $card--border-color;
+        @extend %main--default-card-shadow;
+    }
+
+    &__item {
+        margin: 10px 0 10px;
+        display: inline-block;
+        word-wrap: break-word;
+
+        &--coverimg {
+            border-radius: $card--cover-border-radius;
+            border: 1px solid $card--cover-border-color;
+            object-fit: contain;
+            grid-area: coverimg;
+        }
+
+        &--rating {
+            color: orange;
+            text-align: center;
+            font-size: 1.5rem;
+            grid-area: rating;
+        }
+
+        &--synopsis {
+            flex: 1 0;
+            grid-area: synopsis;
+        }
+    }
+
+    &__bottomControls {
+        grid-area: buttons;
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        @include atleast($main--tablet-width) {
+            order: end;
+        }
+    }
+}

@@ -1,9 +1,10 @@
 .footer {
-    grid-row: 3;
+    grid-row: end;
     display: block;
     text-align: center;
     background-color: $footer--background-color;
     width: 100%;
     margin-top: 25px;
     padding: 20px 0;
+    margin-bottom: -50px;
 }

@@ -1,3 +1,6 @@
+
+// MEDIA QUERIES
+
 @mixin until($device-width) {
     @media screen and (max-width: $device-width - 1) {
         @content;
@@ -17,6 +20,8 @@
 }
 
 
+// UI FX
+
 @mixin glow($radius:0, $color:white, $duration: 0.15s) {
     // usage: 
 
@@ -34,12 +39,41 @@
 
     @if $radius != 0 {
         text-shadow: 0 0 $radius $color;
+    } @else if $radius == 0 {
+        text-shadow: none;
     };
 
     transition: text-shadow $duration;
 }
 
 @mixin cardHighlight($duration: 0.2s) {
-    transition: background-image $duration, border $duration, box-shadow $duration;
+    transition: 
+        background-image $duration,
+        border $duration, 
+        box-shadow $duration;
 }
 
+
+%main--default-card-shadow {
+    box-shadow: 10px 10px 12px 5px #ddd;
+}
+
+%main--highlight-card-shadow {
+    box-shadow: 10px 10px 20px 10px #ddd;
+}
+
+// LAYOUT TOOLS
+
+@mixin generateGrid($width: $main--desktop-width, $grid-template-string) {
+        display: grid;
+        gap: 15px;
+        text-align: left;
+        grid-template: $grid-template-string;
+}
+
+@mixin flex-column($justify: center, $align: center) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align;
+    justify-content: $justify;
+}

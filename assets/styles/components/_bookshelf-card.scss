@@ -1,38 +1,32 @@
-.bookshelf-card {
-    width: 180px;
-    margin: 15px;
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #aaa;
-    box-shadow: 10px 10px 12px 5px #ddd;
-    background-color: white;
-    background-image: linear-gradient(to bottom right, #fff, rgba(250,250,250,1.0));
-    @include cardHighlight();
-    cursor: pointer;
-    display: block;
-    
-    display: grid;
-    grid-template-columns: 1;
-    grid-template-rows: 3;
+.card--bookshelf {
 
+    @include cardCommon;
+    @extend %main--default-card-shadow;
+    @include cardHighlight();
+
+    display: block;
+    width: 180px;
     text-align: center;
 
+    // overriding cardCommon value for aesthetics
+    border-radius: $card--bookshelf-border-radius;
+    
+    background-image: linear-gradient(to bottom right, #fff, rgba(240,240,240,0.7)); 
+    cursor: pointer;
 
     &:hover, &:active, &:focus {
         background-image: none;
         border: 1px solid #888;
-        box-shadow: 10px 10px 20px 10px #ddd;
+        @extend %main--highlight-card-shadow;
         @include cardHighlight();
     }
 
     &__coverimg {
-        border-radius: 10px;
-
+        @extend %card__item--coverimg;
         display: block;
         height: 275px;
-        margin: 0 auto 10px;;
+        margin: 0 auto 10px;
 
-        object-fit: contain;
     }
 
     &__title {
@@ -47,7 +41,6 @@
     &__author::before {
         content: '';
         border-top: 1px solid black;
-        // margin-top: -5px;
         padding-bottom: 8px;
         display: block;
     }

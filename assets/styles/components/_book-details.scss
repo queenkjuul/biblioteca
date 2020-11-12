@@ -1,0 +1,96 @@
+.details {
+
+    @include cardHolderCommon;
+
+    &__container {
+        @extend %card__container;
+    }
+
+    &__card {
+        @include cardCommon;
+        @extend %card__fullPageCard;
+        margin-top: 5rem;
+        
+        &--left-set {
+            grid-area: coverimg;
+            @include flex-column;
+            height: 100%;
+        }
+
+        $details--grid-template:
+        "coverimg   title" 
+        "coverimg   author"
+        "coverimg   publishdate"
+        "coverimg   pagecount"
+        "coverimg   synopsis"
+        "coverimg   synopsis"
+        "buttons    buttons"  auto / 1fr 2fr;
+
+        @include atleast($main--desktop-width) {
+            @include generateGrid($main--desktop-width, $details--grid-template);
+        }
+    }
+
+    &__item {
+
+        @extend %card__item;
+
+        &--coverimg {
+            @extend %card__item--coverimg;
+            display: block;
+            max-width: 100%;
+            margin: 10px;
+
+            @include atleast($main--desktop-width) {
+                margin: 20px auto 20px;
+            }
+        }
+
+        &--rating {
+            @extend %card__item--rating;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin-top: 10px;
+            padding: 0 0 5px;
+        }
+
+        &--title {
+            font-size: 2rem;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            max-width: 600px;
+            grid-area: title;
+        }
+
+        &--author {
+            font-size: 1.5rem;
+            grid-area: author;
+        }
+
+        &--pageCount, &--publishDate {
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+        
+        &--publishDate {
+            grid-area: publishdate;
+        }
+
+        &--pageCount {
+            grid-area: pagecount;
+        }
+
+        &--synopsis {
+            @extend %card__item--synopsis;
+            align-self: flex-start;
+            @include atleast($main--tablet-width) {
+                padding: 0 60px 0 0;
+            }
+        }
+    }
+
+    &__controls {
+        @extend %card__bottomControls;
+    }
+}
+

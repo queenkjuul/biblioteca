@@ -6,6 +6,7 @@
     max-width: $main--max-width;
     justify-content: space-between;
     align-items: center;
+    color: white;
 
     @include until($main--phone-width) {
         flex-direction: row;
@@ -13,16 +14,13 @@
         align-items: flex-start;
     }
 
-    // & a, & a:hover, & a:visited, & a:active {
-    //     text-decoration: none;
-    // }
-
     &__badge {
         display: block;
         margin: auto 0 auto 0;
         font-family: $navbar__badge-font-family;
-        font-size: 2rem;
+        font-size: $navbar__badge-font-size;
         font-variant: small-caps;
+        font-weight: 400;
         color: $navbar__badge-text-color;
         border: 0px solid white;
         background-color: transparent;
@@ -33,7 +31,6 @@
         
         &:hover {
             @include glow(10px, $navbar__badge-text-color);
-            border: 0px solid white;
             background-color: transparent;
         }
     }
@@ -78,6 +75,7 @@
         padding: 6px;
         border: 1px solid $navbar__search--input-border-color;
         margin: 10px 0;
+
     }
 
     &__hamburger {
