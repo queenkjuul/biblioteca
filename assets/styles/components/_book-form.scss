@@ -8,36 +8,185 @@
     &__card {
         @include cardCommon;
         @extend %card__fullPageCard;
+        justify-content: center;
+        align-items: center;
         margin-top: 5rem;
-
-        &--publishPage {
-            @include flex-column();
-            grid-area: publishPage;
-        }
-
-        &--coverset {
-            @include flex-column();
-            grid-area: coverimg
-        }
+        min-width: 50%;
+        max-width: $main--tablet-width;
 
         $book-form--grid-template:
-            "header         header"
-            "title          coverimg"
-            "author         coverimg"
-            "synopsis       coverimg"
-            "publishPage    coverimg"
-            "rating         ."
-            "buttons        buttons" auto / 2fr 1fr;
+            "header             header         header"
+            "label-title        title          coverimg"
+            "label-author       author         coverimg"
+            "label-synopsis     synopsis       coverimg"
+            "label-publishPage  publishPage    coverimg"
+            "label-rating       rating         ."       
+            "buttons            buttons        buttons" auto / 0.5fr 2fr 1fr;
 
         @include atleast($main--desktop-width) {
             @include generateGrid($main--desktop-width, $book-form--grid-template);
+            min-width: max(60%, 150px);
+            gap: 15px;
+        }
+    }
+
+    &__label {
+
+        text-align: center;
+        @include until($main--desktop-width) {
+            padding: 20px 0 5px 0;
+        }
+
+        &--title {
+            @extend .book-form__label;
+            grid-area: label-title;
+        }
+
+        &--author {
+            @extend .book-form__label;
+            grid-area: label-author;
+        }
+
+        &--synopsis {
+            @extend .book-form__label;
+            grid-area: label-synopsis;
+        }
+
+        &--rating {
+            @extend .book-form__label;
+            grid-area: label-rating;
+        }
+
+        &--publishDate {
+            @extend .book-form__label;
+            grid-area: label-publishPage;
+        }
+        
+        &--pageCount {
+            padding: 10px;
+            margin-left: auto;
+            @include atleast($main--desktop-width) {
+                padding: 0 10px 0 50px;
+            }
         }
     }
 
     &__item {
         @extend %card__item;
+        @include flex-column();
+        @include atleast($main--desktop-width) {
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        margin: 10px 0 10px;
 
-        
+        &--publishPage {
+            @extend .book-form__item;
+            grid-area: publishPage;
+            width: 100%;
+        }
 
+        &--coverset {
+            @extend .book-form__item;
+            @include flex-column(space-between);
+            grid-area: coverimg;
+            height: 100%;
+        }
+
+        &--header {
+            grid-area: header;
+            margin: auto;
+        }
+
+        &--title {
+            @extend .book-form__item;
+        }
+
+        &--author {
+            @extend .book-form__item;
+        }
+
+        &--synopsis {
+            @extend .book-form__item;
+        }
+
+        &--rating {
+            @extend %card__item--rating;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        &--coverimg {
+            @extend %card__item--coverimg;
+            min-height: 300px;
+            width: 85%;
+            margin: 10px 0 10px;
+            background-color: $main--page-background-color;
+            background-image: url('../../assets/images/sadmac.png');
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            @include atleast($main--desktop-width) {
+                margin: 0 10px 10px;
+            }
+        }
+
+        &--addimg {
+            @extend .btn--secondary;
+            border: 2px solid transparent;
+            min-width: 0;
+            width: 100px;
+            // margin: 10px 0 10px;
+            // width: 85%;
+        }
+    }
+
+    &__textbox {
+        border-radius: $textbox-border-radius;
+        border: 1px solid $card--textbox-border-color;
+        padding: 8px;
+        width: 100%;
+        font-family: $font-stack-sans;
+
+        &--title {
+            grid-area: title;
+            @extend .book-form__textbox;
+        }
+
+        &--author {
+            grid-area: author;
+            @extend .book-form__textbox;
+        }
+
+        &--synopsis {
+            @extend .book-form__textbox;
+            flex: 1 0;
+            min-height: 200px;
+            grid-area: synopsis;
+            vertical-align: text-top;
+            align-self: flex-start;
+        }
+    }
+
+    &__input {
+        @extend .book-form__textbox;
+
+        &--publishDate {
+            @extend .book-form__input;
+            max-width: 130px;
+            text-align: center;
+        }
+
+        &--pageCount {
+            @extend .book-form__input;
+            max-width: 130px;
+            margin: 0;
+        }
+    }
+
+    &__controls {
+        @extend %card__bottomControls;
+        grid-area: buttons;
     }
 }

@@ -27,7 +27,7 @@ $btn--default-hover-background-color: #5a80a1;
 $btn--default-hover-text-color: white;
 $btn--default-hover-border-color: #333;
         //secondary
-$btn--secondary-background-color: #aaa;
+$btn--secondary-background-color: #ccc;
 $btn--secondary-border-color: $btn--default-background-color;
 $btn--secondary-text-color: #333;
 
@@ -59,6 +59,7 @@ $bookshelf__card--border-color: black;
 $card--border-color: #ccc;
 $card--cover-border-color: #aaa;
 $card--background-color: white;
+$card--textbox-border-color: $card--cover-border-color;
 
 
 // _____

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book - La Biblioteca</title>
+    <link rel="stylesheet" href="assets/styles/index.scss">
+</head>
+
+<body id="body" class="book-form">
+    <script src="generateHeader.js"></script>
+    <main class="grid">
+        <article class="book-form__container">
+            <form class="book-form__card">
+                <h1 class="book-form__item--header">Edit Book</h1>
+
+                <label class="book-form__label--title" for="title">Title:</label>
+                <input class="book-form__textbox--title" type="text" name="title" id="title">
+                
+                <label class="book-form__label--author " for="author">Author:</label>
+                <input class="book-form__textbox--author" type="text" name="author" id="author"></input>
+                
+                <div class="book-form__item--coverset">
+                    <div class="book-form__item--coverimg"></div>
+                    <a class="book-form__item--addimg">Add Image</a>
+                </div>
+                
+                <label class="book-form__label--synopsis " for="synopsis">Synopsis:</label>
+                <input class="book-form__textbox--synopsis" id="synopsis" name="synopsis">
+                
+                <label class="book-form__label--publishDate" for="publishDate">Published:</label>
+                <div class="book-form__item--publishPage">
+                    <input class="book-form__input--publishDate" type="date" id="publishDate" name="publishDate">
+                    <label class="book-form__label--pageCount " for="pageCount">Pages:</label>
+                    <input class="book-form__input--pageCount" type="number" id="pageCount" name="pageCount">
+                </div>
+
+                <label class="book-form__label--rating">Rating:</label>
+                <div class="book-form__item--rating">&#9733 &#9733 &#9733 &#9733 &#9734</div>
+                <div class="book-form__controls">
+                    <a class="btn" href="#">Submit</a>
+                    <a class="btn--secondary" href="#">Cancel</a>
+                    <a class="btn--critical" href="#">DELETE BOOK</a>
+                </div>
+
+        </article>
+
+    </main>
+</body>
+
+</html>
