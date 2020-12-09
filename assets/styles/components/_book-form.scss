@@ -64,8 +64,8 @@
         
         &--pageCount {
             padding: 10px;
-            margin-left: auto;
             @include atleast($main--desktop-width) {
+                margin-left: auto;
                 padding: 0 10px 0 50px;
             }
         }
