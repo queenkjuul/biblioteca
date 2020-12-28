@@ -1,5 +1,11 @@
 # Library-Phase-One-Assignment-2020
 
+## Running This Code
+
+    npm install
+    npm start
+    // everything should be taken care of for you already :)
+
 ## Instructions:
 
 - Clone this repository into your local `~/code` directory.
