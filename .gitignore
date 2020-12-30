@@ -11,3 +11,4 @@ node_modules/
 src/BookshelfLegacy.jsx 
 generateBooks.js
 generateHeader.js
+legacyHTML/

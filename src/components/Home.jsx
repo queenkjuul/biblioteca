@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+
 
 const Home = () => {
-return (<main className="grid">
+return (<>
         <section className="welcomeBanner">
             <h1>Books.</h1>
             <h2>Like PDFs, but heavier</h2>
@@ -12,11 +14,11 @@ return (<main className="grid">
                 because they are one of the only places you are allowed to exist in public without the expectation of having paid to be there, 
                 either by having purchased an item (such as coffee or a snack) or paid an admission.
             </p>
-            <a href="bookshelf.html" className="btn">See Books</a>
+            <NavLink to="/bookshelf" className="btn">See Books</NavLink>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <button className="btn">Add Book</button>
+            <NavLink to="/add" className="btn">Add Book</NavLink>
         </section>
-</main>)
+</>)
 }
 
 export default Home;

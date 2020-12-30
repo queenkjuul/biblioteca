@@ -1,12 +1,10 @@
 .bookshelf{
     @include cardHolderCommon;
-
-    &__pagetitle {
-        margin-top: 5rem;
-    }
     
     &__container {
         @extend .bookshelf;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;

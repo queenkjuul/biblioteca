@@ -2,6 +2,7 @@
     @include cardHolderCommon;
 
     &__container {
+        @extend .book-form;
         @extend %card__container;
     }
 
