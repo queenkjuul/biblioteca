@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Details = () => {
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    },[])
+    
     return (
         <main className="details__container">
             <article className="details__card">

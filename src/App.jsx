@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-
 // Node dependecies
 
 // Error Boundary
@@ -19,6 +18,7 @@ import Home from './components/Home';
 import NotFound from './components/NotFound';
 
 const App = () => {
+
     return (
         <ErrorBoundary>
             <Router>

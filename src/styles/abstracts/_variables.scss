@@ -32,12 +32,12 @@ $btn--secondary-border-color: $btn--default-background-color;
 $btn--secondary-text-color: #333;
 
         //navbar
-$btn__navbar-color-inactive: #fff;
-$btn__navbar-hover-background-color: #fff;
-$btn__navbar-hover-border-color: #bbb;
+$navbar__menu-button-color-inactive: #fff;
+$navbar__menu-button-hover-background-color: #fff;
+$navbar__menu-button-hover-border-color: #bbb;
             //navbar-search
-$btn__navbar--search-border-color: $btn--default-background-color;
-$btn__navbar--search-hover-text-color: white;
+$navbar__menu-button--search-border-color: $btn--default-background-color;
+$navbar__menu-button--search-hover-text-color: white;
 $navbar__search--input-border-color: #333;
             //navbar-badge
 $navbar__badge-text-color: white;

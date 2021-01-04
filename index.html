@@ -4,10 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title id="title">La Biblioteca</title>
-        <link rel="stylesheet" href="src/styles/index.scss">
+        <!-- Parcel is doing this automatically, and including this line caused -->
+        <!-- parcel to pull in the SCSS twice, causing duplicate classes in dev tools -->
+        <!-- however, I am leaving it here, in case I need to put it back later (e.g. in deployment) -->
+        <!-- <link rel="stylesheet" href="src/styles/index.scss"> -->
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root" class="grid"></div>
     </body>
     <script src="./src/index.jsx"></script>
 </html>

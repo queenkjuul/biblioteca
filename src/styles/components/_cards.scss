@@ -14,9 +14,7 @@
 %card {
     
     &__container {
-        display: flex;
         @include flex-column(space-between, center);
-        grid-template-rows: 5rem 1fr 3rem;
         padding: 1rem;
         @include until($main--tablet-width) {
             align-items: center;

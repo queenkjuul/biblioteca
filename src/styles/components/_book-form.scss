@@ -28,6 +28,7 @@
             @include generateGrid($main--desktop-width, $book-form--grid-template);
             min-width: max(60%, 150px);
             gap: 15px;
+            max-width: 60%;
         }
     }
 
@@ -90,9 +91,12 @@
 
         &--coverset {
             @extend .book-form__item;
-            @include flex-column(space-between);
+            @include flex-column(space-around);
+            justify-content: flex-start;
             grid-area: coverimg;
             height: 100%;
+            margin: 10px;
+            padding: 10px;
         }
 
         &--header {
@@ -121,14 +125,16 @@
         &--coverimg {
             @extend %card__item--coverimg;
             min-height: 300px;
-            width: 85%;
-            margin: 10px 0 10px;
+            width: 100%;
+            // width: 85%;
+            margin: 0 10px 10px;
+            // margin: 0;
             background-color: $main--page-background-color;
             background-image: url('../../assets/images/sadmac.png');
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
-            @include atleast($main--desktop-width) {
+            @include until($main--desktop-width) {
                 margin: 0 10px 10px;
             }
         }
@@ -138,8 +144,12 @@
             border: 2px solid transparent;
             min-width: 0;
             width: 100px;
-            // margin: 10px 0 10px;
+            margin: 0;
+            // margin: 10px;
             // width: 85%;
+            @include atleast($main--desktop-width) {
+                margin: auto;
+            }
         }
     }
 
@@ -149,6 +159,9 @@
         padding: 8px;
         width: 100%;
         font-family: $font-stack-sans;
+        box-sizing: border-box; 
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
 
         &--title {
             grid-area: title;

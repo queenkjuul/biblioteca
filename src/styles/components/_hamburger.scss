@@ -1,0 +1,9 @@
+$hamburger-color: #fff;
+$hamburger-size: 30px;
+$hamburger-bar-border-radius: 5px;
+$hamburger-thickness: 3px;
+$hamburger-animation-speed: 1.5;
+
+@import "~delicious-hamburgers/scss/_base.scss";
+@import "~delicious-hamburgers/scss/animations/_collapse";
+

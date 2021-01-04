@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const BookForm = () => {
+const BookForm = ({ headerString }) => {
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    },[])
+
+    // taken from https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+    // while I can't think of any use cases for this component besides "Edit" or "Add,"
+    // i figured it was worth it to make it more universally applicable just in case
+    // this way you can pass any header string you want and it will display correctly
+    const toTitleCase = (string) => {
+        return string.replace(
+            /\w\S*/g,
+            function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        )
+    }
+
     return (
-        <main className="grid">
+        // <main>
         <article className="book-form__container">
             <form className="book-form__card">
-                <h1 className="book-form__item--header">Edit Book</h1>
+                <h1 className="book-form__item--header">{toTitleCase(headerString)}</h1>
 
 
                 <label className="book-form__label--title" for="title">Title:</label>
@@ -40,7 +58,7 @@ const BookForm = () => {
                 </div>
             </form>
         </article>
-    </main>
+    // </main>
     )
 }
 
