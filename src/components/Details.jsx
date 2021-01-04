@@ -20,8 +20,8 @@ const Details = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </section>
                 <section className="details__controls">
-                    <button className="btn" href="edit.html">Edit Book</button>
-                    <button className="btn btn--secondary details__back" href="bookshelf.html">Back to Bookshelf</button>
+                    <a className="btn" href="edit.html">Edit Book</a>
+                    <a className="btn btn--secondary details__back" href="bookshelf.html">Back to Bookshelf</a>
                 </section>
             </article>
         </main>

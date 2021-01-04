@@ -7,24 +7,27 @@ const BookForm = () => {
             <form className="book-form__card">
                 <h1 className="book-form__item--header">Edit Book</h1>
 
-                <label className="book-form__label--title" htmlFor="title">Title:</label>
+
+                <label className="book-form__label--title" for="title">Title:</label>
                 <input className="book-form__textbox--title" type="text" name="title" id="title" />
                 
-                <label className="book-form__label--author " htmlFor="author">Author:</label>
+                <label className="book-form__label--author " for="author">Author:</label>
+
                 <input className="book-form__textbox--author" type="text" name="author" id="author"></input>
                 
                 <div className="book-form__item--coverset">
                     <div className="book-form__item--coverimg"></div>
-                    <button className="book-form__item--addimg">Add Image</button>
+
+                    <a className="book-form__item--addimg">Add Image</a>
                 </div>
                 
-                <label className="book-form__label--synopsis " htmlFor="synopsis">Synopsis:</label>
+                <label className="book-form__label--synopsis " for="synopsis">Synopsis:</label>
                 <textarea className="book-form__textbox--synopsis" id="synopsis" name="synopsis"></textarea>
                 
-                <label className="book-form__label--publishDate" htmlFor="publishDate">Published:</label>
+                <label className="book-form__label--publishDate" for="publishDate">Published:</label>
                 <div className="book-form__item--publishPage">
                     <input className="book-form__input--publishDate" type="date" id="publishDate" name="publishDate" />
-                    <label className="book-form__label--pageCount " htmlFor="pageCount">Pages:</label>
+                    <label className="book-form__label--pageCount " for="pageCount">Pages:</label>
                     <input className="book-form__input--pageCount" type="number" id="pageCount" name="pageCount" />
                 </div>
 
