@@ -44,7 +44,7 @@ const Bookshelf = () => {
     }, [])
 
     return (
-        <div class="grey-background">
+        <div className="grey-background">
             <h1 className="pagetitle">Release the Kraken of Knowledge!</h1>
             <section className="bookshelf__container" id="bookshelf__container">
                 {books ? 

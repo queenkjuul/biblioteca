@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-const activeClass = "btn__navbar--active";
+
+
+const activeClass = "navbar__menu-button--active";
 
 const Header = () => {
 

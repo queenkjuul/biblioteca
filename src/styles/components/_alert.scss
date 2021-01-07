@@ -1,0 +1,23 @@
+.alert {
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        @include flex-column(center);
+    }
+
+    &__card {
+        @include cardCommon;
+        position: absolute;
+        margin: auto;
+        max-width: 80%;
+    }
+
+    &__controls {
+        @extend %card__bottomControls;
+        margin-top: 20px;
+    }
+}

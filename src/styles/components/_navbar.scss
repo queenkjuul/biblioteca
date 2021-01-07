@@ -8,10 +8,22 @@
     align-items: center;
     color: white;
 
+    
     @include until($main--phone-width) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
+        $hamburger-menu--grid-template: 
+            "badge  badge   burger"
+            "menu   menu    menu" 
+            "search search  search" auto;
+        @include generateGrid($main--phone-width, $hamburger-menu--grid-template);
+        grid-gap: 0;
+    }
+
+    @include between($main--phone-width, $main--tablet-width) {
+        $hamburger-menu--grid-template: 
+            "badge  search      burger"
+            "menu   menu        menu" auto;
+    @include generateGrid($main--phone-width, $hamburger-menu--grid-template);
+    grid-gap: 0;
     }
 
     &__badge {
@@ -28,6 +40,7 @@
         white-space: nowrap;
         min-width: 230px;
         padding: 0 10px;
+        grid-area: badge;
         
         &:hover, &:active {
             @include glow(10px, $navbar__badge-text-color);
@@ -40,31 +53,126 @@
         display: flex;
         width: 100%;
         justify-content: space-around;
-        @include until($main--tablet-width) {
-            display: none;
+        grid-area: menu;
+
+        @include until($main--phone-width) {
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
         }
 
-        @include until($main--desktop-width) {
+        @include atleast($main--phone-width) {
+            margin-bottom: 11px;
+        }
+
+        @include atleast($main--tablet-width) {
             justify-content: space-evenly;
+            margin-bottom: -4px;
+        }
+
+        &--hidden {
+            @include until($main--tablet-width) {
+                display: none;
+            }
         }
     }
 
     & li {
         display: block;
+
+        @include until($main--phone-width) {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    &__menu-button {
+        display: block;
+        height: 100%;
+        width: 100%;
+        max-width: unset;
+        
+        color: $navbar__menu-button-color-inactive;
+        background-color: transparent;
+
+        font-family: $btn--default-font-family;
+        font-size: $btn--default-font-size;
+        font-weight: $btn--default-font-weight;
+
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        
+        white-space: nowrap;
+        margin: 0;
+        padding: 1px;
+        border: 4px solid transparent;
+
+        @include until($main--phone-width) {
+            border-bottom: 1px solid darken($header-background-color, 10%);
+            padding: 3px 0 8px;
+        }
+        
+        &:hover {
+            color: $navbar__menu-button-hover-background-color;
+            @include glow(1px, $btn--default-hover-text-color);
+        }
+        
+        &--active, &--active:hover{
+            @extend .navbar__menu-button;
+            @include glow(1px, $btn--default-hover-text-color);
+            @include until($main--phone-width) {
+                border-bottom: 1px solid white;
+            }
+
+            @include atleast($main--phone-width){
+                border-radius: 0;
+                border: 4px solid transparent;
+                border-bottom: 4px solid $btn--default-hover-text-color;
+            }
+            
+        }
+
+        &--search {
+            @extend .btn;
+            display: inline-block;
+            margin: 0 1vw;
+            background-color: $header-background-color;
+            border: 2px solid $navbar__menu-button--search-border-color;
+            font-size: 0.75rem;
+            padding: 5px;
+            
+            &:hover {
+                background-color: $btn--default-background-color;
+                border: 2px solid transparent;
+            }
+        }
     }
 
     &__search {
         display: flex;
         align-items: center;
         align-self: center;
+        justify-content: center;
         margin-right: 1vw;
 
+        grid-area: search;
+
         @include until($main--phone-width) {
-            display: none;
+            margin: 0;
         }
 
         @include until($main--tablet-width) {
             margin-right: 0;
+        }
+
+        &--hidden {
+            @include until($main--phone-width) {
+                display: none;
+            }
         }
     }
 
@@ -73,15 +181,15 @@
         align-self: baseline;
         min-width: 150px;
         border-radius: $textbox-border-radius;
-        padding: 6px;
+        padding: 8px;
         border: 1px solid $navbar__search--input-border-color;
         margin: 10px 0;
-
+        font-size: 13px;
     }
 
     &__hamburger {
         display: block;
-        padding: 4px 9px;
+        padding: 4px;
         margin: 10px 10px;
         align-self: center;
         border: 2px solid $navbar__menu-button--search-border-color;
@@ -89,11 +197,10 @@
         color: white;
         font-family: $font-stack-sans;
         cursor: pointer;
+        grid-area: burger;
         
-
         @include atleast($main--tablet-width) {
             display: none;
         }
     }
 }
-
