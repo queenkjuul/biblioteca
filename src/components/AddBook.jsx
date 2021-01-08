@@ -8,15 +8,12 @@ const AddBook = () => {
 
     let headerString = "Add Book";
 
-    let params = useParams();
-    console.log(params);
-
     useEffect(() => {
         window.scrollTo(0,0);
     },[])
     
     return (
-        <BookForm headerString={headerString} />
+        <BookForm headerString={headerString} canDelete={false} />
     )
 }
 

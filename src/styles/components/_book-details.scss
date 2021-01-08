@@ -37,7 +37,7 @@
 
         &--coverimg {
             @extend .details__item;
-            @extend %card__item--coverimg;
+            @extend %card__coverimg;
             display: block;
             max-width: 100%;
             margin: 10px;
@@ -49,7 +49,7 @@
 
         &--rating {
             @extend .details__item;
-            @extend %card__item--rating;
+            @extend %card__rating;
             border-top: 1px solid black;
             border-bottom: 1px solid black;
             margin-top: 10px;
@@ -91,7 +91,7 @@
 
         &--synopsis {
             @extend .details__item;
-            @extend %card__item--synopsis;
+            @extend %card__synopsis;
             align-self: flex-start;
             @include atleast($main--tablet-width) {
                 padding: 0 60px 0 0;

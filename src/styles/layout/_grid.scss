@@ -1,7 +1,7 @@
 .grid {
     display: grid;
     min-height: 100%;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 1fr auto;
     align-items: flex-start;
     justify-content: stretch;
     line-height: normal;

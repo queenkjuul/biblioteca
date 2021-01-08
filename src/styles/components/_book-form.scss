@@ -12,23 +12,26 @@
         justify-content: center;
         align-items: center;
         margin-top: 5rem;
-        min-width: 50%;
-        max-width: $main--tablet-width;
+        max-width: $main--desktop-width;
 
         $book-form--grid-template:
             "header             header         header"
             "label-title        title          coverimg"
             "label-author       author         coverimg"
             "label-synopsis     synopsis       coverimg"
-            "label-publishPage  publishPage    coverimg"
+            "label-publishPage  publishPage    addimg"
             "label-rating       rating         ."       
             "buttons            buttons        buttons" auto / 0.5fr 2fr 1fr;
 
+        @include until($main--desktop-width) {
+            min-width: 50%;
+        }
+    
         @include atleast($main--desktop-width) {
             @include generateGrid($main--desktop-width, $book-form--grid-template);
-            min-width: max(60%, 150px);
+            min-width: $main--tablet-width;
             gap: 15px;
-            max-width: 60%;
+            max-width: $main--desktop-width;
         }
     }
 
@@ -82,74 +85,76 @@
             align-items: center;
         }
         margin: 10px 0 10px;
+    }
 
-        &--publishPage {
-            @extend .book-form__item;
-            grid-area: publishPage;
-            width: 100%;
+    &__publishPage {
+        @extend .book-form__item;
+        grid-area: publishPage;
+        width: 100%;
+    }
+
+    &__coverset {
+        @extend .book-form__item;
+        @include flex-column(space-around);
+        justify-content: flex-start;
+        grid-area: coverimg;
+        height: 100%;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    &__header {
+        grid-area: header;
+        margin: auto;
+    }
+
+    &__title {
+        @extend .book-form__item;
+    }
+
+    &__author {
+        @extend .book-form__item;
+    }
+
+    &__synopsis {
+        @extend .book-form__item;
+    }
+
+    &__rating {
+        @extend %card__rating;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    &__coverimg {
+        @extend %card__coverimg;
+        grid-area: coverimg;
+        height: 300px;
+        margin: 0 10px 10px;
+        box-sizing: border-box;
+        background-color: $main--page-background-color;
+        justify-self: center;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include until($main--desktop-width) {
+            margin: 20px;
+            height: unset;
+            max-height: 300px;
+            max-width: 50%;
         }
+    }
 
-        &--coverset {
-            @extend .book-form__item;
-            @include flex-column(space-around);
-            justify-content: flex-start;
-            grid-area: coverimg;
-            height: 100%;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        &--header {
-            grid-area: header;
+    &__addimg {
+        @extend .btn--secondary;
+        grid-area: addimg;
+        border: 2px solid transparent;
+        min-width: 0;
+        max-width: unset;
+        width: 200px;
+        margin: 0;
+        @include atleast($main--desktop-width) {
             margin: auto;
-        }
-
-        &--title {
-            @extend .book-form__item;
-        }
-
-        &--author {
-            @extend .book-form__item;
-        }
-
-        &--synopsis {
-            @extend .book-form__item;
-        }
-
-        &--rating {
-            @extend %card__item--rating;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-
-        &--coverimg {
-            @extend %card__item--coverimg;
-            min-height: 300px;
-            width: 100%;
-            // width: 85%;
-            margin: 0 10px 10px;
-            // margin: 0;
-            background-color: $main--page-background-color;
-            background-image: url('../../assets/images/sadmac.png');
-            background-position: center center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            @include until($main--desktop-width) {
-                margin: 0 10px 10px;
-            }
-        }
-
-        &--addimg {
-            @extend .btn--secondary;
-            border: 2px solid transparent;
-            min-width: 0;
-            width: 100px;
-            margin: 0;
-            // margin: 10px;
-            // width: 85%;
-            @include atleast($main--desktop-width) {
-                margin: auto;
-            }
         }
     }
 

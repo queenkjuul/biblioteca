@@ -38,26 +38,30 @@
         margin: 10px 0 10px;
         display: inline-block;
         word-wrap: break-word;
-
-        &--coverimg {
-            border-radius: $card--cover-border-radius;
-            border: 1px solid $card--cover-border-color;
-            object-fit: contain;
-            grid-area: coverimg;
-        }
-
-        &--rating {
-            color: orange;
-            text-align: center;
-            font-size: 1.5rem;
-            grid-area: rating;
-        }
-
-        &--synopsis {
-            flex: 1 0;
-            grid-area: synopsis;
-        }
     }
+
+    &__coverimg {
+        @extend %card__item;
+        border-radius: $card--cover-border-radius;
+        border: 1px solid $card--cover-border-color;
+        object-fit: contain;
+        grid-area: coverimg;
+    }
+
+    &__rating {
+        @extend %card__item;
+        color: orange;
+        text-align: center;
+        font-size: 1.5rem;
+        grid-area: rating;
+    }
+
+    &__synopsis {
+        @extend %card__item;
+        flex: 1 0;
+        grid-area: synopsis;
+    }
+
 
     &__bottomControls {
         grid-area: buttons;

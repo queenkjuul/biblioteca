@@ -23,7 +23,6 @@ const App = () => {
         <ErrorBoundary>
             <Router>
                 <Header />
-                <main className="grid">
                     <Switch>
                         <Route exact path="/">
                             <Home />
@@ -44,7 +43,6 @@ const App = () => {
                             <NotFound />
                         </Route>
                     </Switch>
-                </main>
                 <Footer />
             </Router>
         </ErrorBoundary>

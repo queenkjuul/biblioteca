@@ -22,7 +22,7 @@
     }
 
     &__coverimg {
-        @extend %card__item--coverimg;
+        @extend %card__coverimg;
         display: block;
         height: 275px;
         margin: 0 auto 10px;
