@@ -82,7 +82,7 @@ const BookForm = ({ headerString, canDelete }) => {
         : ''}
         <article className="book-form__container">
             <form className="book-form__card">
-                <h1 className="book-form__header">{toTitleCase(headerString)}</h1>
+                <h1 className="book-form__header">{toTitleCase(headerString || "Header")}</h1>
 
                 <label className="book-form__label--title" htmlFor="title">Title:</label>
                 <input className="book-form__textbox--title" type="text" name="title" id="title" />

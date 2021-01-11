@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import BookshelfCard from './BookshelfCard';
-// import axios from 'axios';
 import library from '../../db.json';
 
 const Bookshelf = () => {
