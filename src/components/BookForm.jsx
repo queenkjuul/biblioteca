@@ -3,11 +3,11 @@ import placeholder from '../../assets/images/sadmac.png';
 import newCover from '../../assets/images/placeholder-cover4.png';
 import Alert from './Alert';
 
-const BookForm = ({ headerString, canDelete }) => {
+const BookForm = ({ headerString, canDelete, book = {} }) => {
     const [coverimg, setCoverimg] = useState(placeholder);
     const [alertState, setAlertState] = useState(false);
     const [alert, setAlert] = useState({
-        content: "Are you sure?",
+        alertMessage: "Are you sure?",
         isCritical: false,
         confirm: hideAlert,
         deny: hideAlert
@@ -85,23 +85,23 @@ const BookForm = ({ headerString, canDelete }) => {
                 <h1 className="book-form__header">{toTitleCase(headerString || "Header")}</h1>
 
                 <label className="book-form__label--title" htmlFor="title">Title:</label>
-                <input className="book-form__textbox--title" type="text" name="title" id="title" />
+                <input className="book-form__textbox--title" type="text" name="title" id="title" defaultValue={book.title || ``} />
                 
                 <label className="book-form__label--author " htmlFor="author">Author:</label>
-                <input className="book-form__textbox--author" type="text" name="author" id="author"></input>
+                <input className="book-form__textbox--author" type="text" name="author" id="author" defaultValue={book.author || ``}></input>
                 
 
                 <img src={coverimg} className="book-form__coverimg"></img>
                 <button onClick={updateCover} className="book-form__addimg">Add Image</button>
                 
                 <label className="book-form__label--synopsis " htmlFor="synopsis">Synopsis:</label>
-                <textarea className="book-form__textbox--synopsis" id="synopsis" name="synopsis"></textarea>
+                <textarea className="book-form__textbox--synopsis" id="synopsis" name="synopsis" defaultValue={book.synopsis || ``}></textarea>
                 
                 <label className="book-form__label--publishDate" htmlFor="publishDate">Published:</label>
                 <div className="book-form__publishPage">
-                    <input className="book-form__input--publishDate" type="date" id="publishDate" name="publishDate" />
+                    <input className="book-form__input--publishDate" type="date" id="publishDate" name="publishDate" defaultValue={book.publishDate || ``}/>
                     <label className="book-form__label--pageCount " htmlFor="pageCount">Pages:</label>
-                    <input className="book-form__input--pageCount" type="number" id="pageCount" name="pageCount" />
+                    <input className="book-form__input--pageCount" type="number" id="pageCount" name="pageCount" defaultValue={book.pageCount || ``}/>
                 </div>
 
                 <label className="book-form__label--rating">Rating:</label>
