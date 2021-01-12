@@ -19,32 +19,34 @@ import NotFound from './components/NotFound';
 
 const App = () => {
     return (
-        <Router>
-            <Header />
-            <main className="grid">
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path={["/bookshelf/:query", "/bookshelf"]}>
-                        <Bookshelf />
-                    </Route>
-                    <Route path="/add">
-                        <AddBook />
-                    </Route>
-                    <Route path="/edit/:id">
-                        <EditBook />
-                    </Route>
-                    <Route path="/details/:id">
-                        <Details />
-                    </Route>
-                    <Route>
-                        <NotFound />
-                    </Route>
-                </Switch>
-            </main>
-            <Footer />
-        </Router>
+        <ErrorBoundary>
+            <Router>
+                <Header />
+                    <main className="grid">
+                        <Switch>
+                            <Route exact path="/">
+                                <Home />
+                            </Route>
+                            <Route path={["/bookshelf/:query", "/bookshelf"]}>
+                                <Bookshelf />
+                            </Route>
+                            <Route path="/add">
+                                <AddBook />
+                            </Route>
+                            <Route path="/edit/:id">
+                                <EditBook />
+                            </Route>
+                            <Route path="/details/:id">
+                                <Details />
+                            </Route>
+                            <Route>
+                                <NotFound />
+                            </Route>
+                        </Switch>
+                    </main>
+                <Footer />
+            </Router>
+        </ErrorBoundary>
     )
 }
 

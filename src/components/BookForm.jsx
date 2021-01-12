@@ -1,113 +1,227 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+
+// assets
 import placeholder from '../../assets/images/sadmac.png';
-import newCover from '../../assets/images/placeholder-cover4.png';
-import Alert from './Alert';
+import toTitleCase from './toTitleCase';
+
+// components
+import Modal from './Modal';
+
+// node dependencies
+import axios from 'axios';
+import ReactStars from 'react-rating-stars-component';
+
 
 const BookForm = ({ headerString, canDelete, book = {} }) => {
     const [coverimg, setCoverimg] = useState(placeholder);
-    const [alertState, setAlertState] = useState(false);
-    const [alert, setAlert] = useState({
-        alertMessage: "Are you sure?",
+    const [modalState, setModalState] = useState(false);
+    const [modal, setModal] = useState({
+        messageArray: ["Are you sure?"],
         isCritical: false,
-        confirm: hideAlert,
-        deny: hideAlert
+        confirm: hideModal,
+        deny: hideModal
     });
+    const [data, setData] = useState({
+        id: book.id,
+        title: (book.title ? toTitleCase(book.title) : ''),
+        author: (book.author ? toTitleCase(book.author) : ''),
+        synopsis: book.synopsis,
+        publishPage: book.publishPage,
+        publishDate: book.publishDate,
+        coverimg: book.coverimg,
+        rating: book.rating
+    })
 
+    const history = useHistory();
+
+    // scroll window to top on re-render
     useEffect(() => {
         window.scrollTo(0,0);
     },[])
 
-    // taken from https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
-    // while I can't think of any use cases for this component besides "Edit" or "Add,"
-    // i figured it was worth it to make it more universally applicable just in case
-    // this way you can pass any header string you want and it will display correctly
-    const toTitleCase = (string) => {
-        return string.replace(
-            /\w\S*/g,
-            function(txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        )
+    const updateCover = (event) => {        
+        event.preventDefault();
+        setModalState(true);
+        setModal({
+            messageArray: ['Please enter a URL which points to the cover image'],
+            isCritical: false,
+            confirm: hideModal,
+            deny: hideModal,
+            changeFunction: urlHandler
+        })
     }
 
-    const updateCover = (event, img) => {
-        // in the future, this function will handle uploading a new cover image and 
-        // assigning it to the img container
-        // for now, it just toggles on a placeholder
+    const hideModal = (event) => {
         event.preventDefault();
-
-        setCoverimg(newCover);
-    }
-
-    const showAlert = (event) => {
-        event.preventDefault();
-        setAlertState(true);
-    }
-
-    const hideAlert = (event) => {
-        event.preventDefault();
-        setAlertState(false);
+        setModalState(false);
     }
 
     const confirmDelete = (event) => {
         event.preventDefault();
-        setAlertState(true);
-        setAlert({
-            alertMessage: "Are you you want to delete this book?",
+        setModalState(true);
+        setModal({
+            messageArray: ["Are you you want to delete this book?"],
             isCritical: true,
-            confirm: hideAlert,
-            deny: hideAlert
+            confirm: hideModal,
+            deny: hideModal
         })
     }
 
     const cancelForm = (event) => {
         event.preventDefault();
-        setAlertState(true);
-        setAlert({
-            alertMessage: "Are you sure you want to cancel before adding this book?",
+        setModalState(true);
+        setModal({
+            messageArray: ["Are you sure you want to cancel before adding this book?"],
             isCritical: false,
-            confirm: () => {history.back()},
-            deny: hideAlert
+            confirm: () => {history.back(); hideModal},
+            deny: hideModal
         })
     }
 
+    const invalidModal = (errorArray) => {
+        setModalState(true);
+        console.log(errorArray);
+        setModal({
+            messageArray: errorArray,
+            isCritical: false,
+            confirm: hideModal,
+            deny: hideModal
+        })
+    }
+
+    const validateInput = ({title, author}) => {
+        let errorList = [];
+        let valid = true;
+
+        if (!title || !author) {
+            errorList.push('Title and Author are required');
+            valid = false;
+        }
+
+        if (!valid) {
+            invalidModal(errorList);
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
+
+    const submitForm = (event) => {
+        event.preventDefault();
+
+        const submitError = (error) => {
+            console.log(error);
+            throw "There was a problem submitting the data";
+        }
+        
+        if (book.id) {
+            axios  
+            .put('http://localhost:3000/books/' + book.id, data)
+            .then(history.push('/details/' + book.id))
+            .catch(submitError)
+        } else {
+            if (validateInput(data)) {
+                axios   
+                .post('http://localhost:3000/books/', data)
+                .then((response) => {
+                    console.log(response);
+                    history.push('/details/' + response.data.id);
+                })
+                .catch(submitError)
+            }
+        }
+    }
+
+    const urlHandler = (event) => {
+        event.preventDefault();
+        setData({...data, coverimg: event.target.value});
+        setCoverimg(event.target.value);
+    }
+
+
+
     return (
         <>
-        {alertState ? 
-            <Alert 
-                content={alert.alertMessage}
-                isCritical={alert.isCritical}
-                confirm={alert.confirm}
-                deny={alert.deny} />
+        {modalState ? 
+            <Modal 
+                content={modal.messageArray}
+                isCritical={modal.isCritical}
+                confirm={modal.confirm}
+                deny={modal.deny}
+                changeFunction={modal.changeFunction} />
         : ''}
         <article className="book-form__container">
-            <form className="book-form__card">
+            <form className="book-form__card" onSubmit={submitForm}>
                 <h1 className="book-form__header">{toTitleCase(headerString || "Header")}</h1>
 
                 <label className="book-form__label--title" htmlFor="title">Title:</label>
-                <input className="book-form__textbox--title" type="text" name="title" id="title" defaultValue={book.title || ``} />
+                <input 
+                    className="book-form__textbox--title" 
+                    type="text" 
+                    name="title" 
+                    id="title" 
+                    defaultValue={book.title || ``} 
+                    onChange={(e) => setData({...data, title: e.target.value})}
+                    required
+                />
                 
                 <label className="book-form__label--author " htmlFor="author">Author:</label>
-                <input className="book-form__textbox--author" type="text" name="author" id="author" defaultValue={book.author || ``}></input>
+                <input 
+                    className="book-form__textbox--author" 
+                    type="text" 
+                    name="author" 
+                    id="author" 
+                    defaultValue={book.author || ``}
+                    onChange={(e) => setData({...data, author: e.target.value})}
+                    required >
+                </input>
                 
 
                 <img src={coverimg} className="book-form__coverimg"></img>
                 <button onClick={updateCover} className="book-form__addimg">Add Image</button>
                 
                 <label className="book-form__label--synopsis " htmlFor="synopsis">Synopsis:</label>
-                <textarea className="book-form__textbox--synopsis" id="synopsis" name="synopsis" defaultValue={book.synopsis || ``}></textarea>
+                <textarea 
+                    className="book-form__textbox--synopsis" 
+                    id="synopsis" 
+                    name="synopsis" 
+                    type="text"
+                    defaultValue={book.synopsis || ``}
+                    onChange={(e) => setData({...data, synopsis: e.target.value})}
+                >
+                </textarea>
                 
                 <label className="book-form__label--publishDate" htmlFor="publishDate">Published:</label>
                 <div className="book-form__publishPage">
-                    <input className="book-form__input--publishDate" type="date" id="publishDate" name="publishDate" defaultValue={book.publishDate || ``}/>
+                    <input 
+                        className="book-form__input--publishDate" 
+                        type="date" 
+                        id="publishDate" 
+                        name="publishDate" 
+                        defaultValue={book.publishDate || ``}
+                        onChange={(e) => setData({...data, publishPage: e.target.value})}
+                    />
                     <label className="book-form__label--pageCount " htmlFor="pageCount">Pages:</label>
-                    <input className="book-form__input--pageCount" type="number" id="pageCount" name="pageCount" defaultValue={book.pageCount || ``}/>
+                    <input 
+                        className="book-form__input--pageCount" 
+                        type="number" 
+                        id="pageCount" 
+                        name="pageCount" 
+                        defaultValue={book.pageCount || ``}
+                        onChange={(e) => setData({...data, pageCount: e.target.value})}
+                    />
                 </div>
 
                 <label className="book-form__label--rating">Rating:</label>
-                <div className="book-form__rating">⭐⭐⭐⭐⭐</div>
+                <ReactStars 
+                    count={5}
+                    onChange={(e) => setData({...data, rating: e})}
+                    size={32}
+                    activeColor="gold"/>
                 <div className="book-form__controls">
-                    <button className="btn">Submit</button>
+                    <button type="submit" className="btn" onClick={submitForm}>Submit</button>
                     <button className="btn--secondary" onClick={cancelForm}>Cancel</button>
                     {canDelete ? 
                         <button onClick={confirmDelete} className="btn--critical">DELETE BOOK</button>

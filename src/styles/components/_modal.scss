@@ -1,4 +1,4 @@
-.alert {
+.modal {
     &__background {
         position: absolute;
         top: 0;
@@ -18,6 +18,17 @@
 
     &__controls {
         @extend %card__bottomControls;
+        margin-top: 20px;
+    }
+
+    &__item {
+        font-style: italic;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    &__input {
+        @extend .book-form__textbox;
         margin-top: 20px;
     }
 }

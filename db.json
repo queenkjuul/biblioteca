@@ -1,40 +1,50 @@
 {
-    "books": [
-        {
-            "id": 1,
-            "title": "Farenheit 451",
-            "author": "Ray Bradbury",
-            "publishDate": "1953-10-19",
-            "pageCount": 256,
-            "coverimg": "assets/images/placeholder-cover2.png",
-            "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-        },
-        {
-            "id": 2,
-            "title": "Brave New World",
-            "author": "Aldous Huxley",
-            "publishDate": "1932-01-01",
-            "pageCount": 311,
-            "coverimg": "assets/images/placeholder-cover1.png",
-            "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-        },
-        {
-            "id": 3,
-            "title": "The Hitchiker's Guide to the Galaxy",
-            "author": "Douglas Adams",
-            "publishDate": "1979-10-12",
-            "pageCount": 160,
-            "coverimg": "assets/images/placeholder-cover3.png",
-            "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-        },
-        {
-            "id": 4,
-            "title": "A Stitch In Time",
-            "author": "Andrew Robinson",
-            "publishDate": "2000-06-05",
-            "pageCount": 288,
-            "coverimg": "assets/images/placeholder-cover4.png",
-            "synopsis": "GARAK IS LOVE. GARAK IS LIFE."
-        }
-    ]
+  "books": [
+    {
+      "id": 1,
+      "title": "Farenheit 451",
+      "author": "Ray Bradbury",
+      "publishDate": "1953-10-19",
+      "pageCount": 256,
+      "coverimg": "assets/images/placeholder-cover2.png",
+      "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    },
+    {
+      "id": 2,
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "publishDate": "1932-01-01",
+      "pageCount": 311,
+      "coverimg": "assets/images/placeholder-cover1.png",
+      "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    },
+    {
+      "id": 3,
+      "title": "The Hitchiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "publishDate": "1979-10-12",
+      "pageCount": 160,
+      "coverimg": "assets/images/placeholder-cover3.png",
+      "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    },
+    {
+      "id": 4,
+      "title": "A Stitch In Time",
+      "author": "Andrew Robinson",
+      "publishDate": "2000-06-05",
+      "pageCount": 288,
+      "coverimg": "assets/images/placeholder-cover4.png",
+      "synopsis": "GARAK IS LOVE. GARAK IS LIFE."
+    },
+    {
+      "title": "Farenheit 451",
+      "author": "Ray Bradbury",
+      "synopsis": "Things Happen!",
+      "publishPage": "1990-01-01",
+      "coverimg": "https://thesheaf.com/wp-content/uploads/2020/01/4956476726_b48dc24dcd_o-538x850.jpg",
+      "rating": 3,
+      "pageCount": "400",
+      "id": 5
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import covers from "../../assets/images/*.png";
+import sadmac from "../../assets/images/sadmac.png";
 
 const BookshelfCard = ({id, coverimg, title, author}) => {
 
@@ -11,7 +11,7 @@ const BookshelfCard = ({id, coverimg, title, author}) => {
     
     return (
         <Link to={`/details/${id}`} className="bookshelf-card" id={`bookshelf-card-${id}`}>
-            <img className="bookshelf-card__coverimg" src={covers["placeholder-cover" + id]} alt={`Cover of the book ${title}`} />
+            <img className="bookshelf-card__coverimg" src={coverimg ? coverimg : sadmac} alt={`Cover of the book ${title}`} />
             <div className="bookshelf-card__title">{title}</div>
             <div className="bookshelf-card__author">{author}</div>
         </Link>)
