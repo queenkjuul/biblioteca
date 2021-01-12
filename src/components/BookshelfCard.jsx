@@ -10,10 +10,10 @@ const BookshelfCard = ({id, coverimg, title, author}) => {
     },[])
     
     return (
-        <Link to={`details/${id}`} className="card--bookshelf" id={`card--bookshelf-${id}`}>
-            <img className="card--bookshelf__coverimg" src={covers["placeholder-cover" + id]} alt={`Cover of the book ${title}`} />
-            <div className="card--bookshelf__title">{title}</div>
-            <div className="card--bookshelf__author">{author}</div>
+        <Link to={`/details/${id}`} className="bookshelf-card" id={`bookshelf-card-${id}`}>
+            <img className="bookshelf-card__coverimg" src={covers["placeholder-cover" + id]} alt={`Cover of the book ${title}`} />
+            <div className="bookshelf-card__title">{title}</div>
+            <div className="bookshelf-card__author">{author}</div>
         </Link>)
 }
 

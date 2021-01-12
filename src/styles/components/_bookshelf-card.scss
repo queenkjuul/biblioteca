@@ -1,4 +1,4 @@
-.card--bookshelf {
+.bookshelf-card {
 
     @include cardCommon;
     @extend %main--default-card-shadow;
@@ -9,7 +9,7 @@
     text-align: center;
 
     // overriding cardCommon value for aesthetics
-    border-radius: $card--bookshelf-border-radius;
+    border-radius: $bookshelf-card-border-radius;
     
     background-image: linear-gradient(to bottom right, #fff, rgba(240,240,240,0.7)); 
     cursor: pointer;

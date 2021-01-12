@@ -1,6 +1,19 @@
+// React dependencies
 import React, { useState, useEffect } from 'react';
+import {
+    BrowserRouter as 
+    Router,
+    Switch,
+    Route,
+    useParams,
+    useRouteMatch
+} from 'react-router-dom';
+
+// Node dependencies
+import axios from 'axios';
+
+// Components
 import BookshelfCard from './BookshelfCard';
-import library from '../../db.json';
 
 const Bookshelf = () => {
 
@@ -10,36 +23,23 @@ const Bookshelf = () => {
     },[])
 
 
-    {/* the line below was included for testing the ErrorBoundary which was new in this branch */}
-    {/* throw "testing React error boundary!" */}
-
     const [books, setBooks] = useState([]);
+    const { query } = useParams();
 
-    // refactoring for static content per ticket AC
-    // Phase I was technically dynamic content in my implementation, just not pulled from a DB
-    // so I'm going to use a script to make the page look identical to phase 1, per AC
-
-    // const getBooks = () => {
-    //     axios   
-    //         .get('http://localhost:3000/books')
-    //         .then((response) => {
-    //             setBooks(response.data);
-    //         })
-    // }
-
-    const getBooks = () => {
-        let bookArr = [];
-        
-        for (let i = 0; i < 19; i++) {
-            let index = Math.floor(Math.random() * Math.floor(4));
-            bookArr[i] = library.books[index];
-        }
-
-        return bookArr;
+    const getBooks = (searchterm) => {
+        axios   
+            .get('http://localhost:3000/books/' + (searchterm ? '?q=' + searchterm : ''))
+            .then((response) => {
+                setBooks(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                throw "There was a problem retrieving the book list";
+            })
     }
 
     useEffect(() => {
-        setBooks(getBooks());
+        setBooks(getBooks(query));
     }, [])
 
     return (
