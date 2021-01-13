@@ -41,6 +41,7 @@
         display: block;
         max-width: 100%;
         margin: 10px;
+        max-height: 500px;
 
         @include atleast($main--desktop-width) {
             margin: 20px auto 20px;
@@ -93,6 +94,8 @@
         @extend .details__item;
         @extend %card__synopsis;
         align-self: flex-start;
+        height: 100%;
+        min-height: 200px;
         @include atleast($main--tablet-width) {
             padding: 0 60px 0 0;
         }

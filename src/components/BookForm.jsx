@@ -219,7 +219,7 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
                     count={5}
                     onChange={(e) => setData({...data, rating: e})}
                     size={32}
-                    activeColor="gold"/>
+                    activeColor="orange"/>
                 <div className="book-form__controls">
                     <button type="submit" className="btn" onClick={submitForm}>Submit</button>
                     <button className="btn--secondary" onClick={cancelForm}>Cancel</button>
