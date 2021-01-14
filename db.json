@@ -4,47 +4,50 @@
       "id": 1,
       "title": "Farenheit 451",
       "author": "Ray Bradbury",
-      "publishDate": "1953-10-19",
-      "pageCount": 256,
+      "synopsis": "fire n such",
+      "publishPage": "1951-01-01",
+      "pageCount": "666",
       "coverimg": "https://thesheaf.com/wp-content/uploads/2020/01/4956476726_b48dc24dcd_o-538x850.jpg",
-      "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+      "rating": 5
     },
     {
+      "coverimg": "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/BraveNewWorld_FirstEdition.jpg/220px-BraveNewWorld_FirstEdition.jpg",
       "id": 2,
       "title": "Brave New World",
       "author": "Aldous Huxley",
-      "publishDate": "1932-01-01",
-      "pageCount": 311,
-      "coverimg": "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/BraveNewWorld_FirstEdition.jpg/220px-BraveNewWorld_FirstEdition.jpg",
-      "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+      "publishPage": "1920-01-01",
+      "pageCount": "311",
+      "rating": 4,
+      "synopsis": "SOMA!"
     },
     {
-      "id": 3,
-      "title": "The Hitchiker's Guide to the Galaxy",
+      "title": "Hitchiker's Guide",
       "author": "Douglas Adams",
+      "coverimg": "https://api.time.com/wp-content/uploads/2014/10/hitchhiker-s-guide-douglas-adams-657242_451_700.jpg",
+      "rating": 5,
+      "synopsis": "42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 4243 ",
+      "pageCount": "208",
       "publishDate": "1979-10-12",
-      "pageCount": 160,
-      "coverimg": "https://api.time.com/wp-content/uploads/2014/10/hitchhiker-s-guide-douglas-adams-657242_451_700.jpg?w=600&quality=85",
-      "synopsis": "A book about stuff that happens, and the stuff that happens are things that happened to have happened in the book. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+      "id": 3
     },
     {
       "id": 4,
       "title": "A Stitch In Time",
       "author": "Andrew Robinson",
       "publishDate": "2000-06-05",
-      "pageCount": 288,
-      "coverimg": "https://upload.wikimedia.org/wikipedia/en/e/e5/Astitchintimecover.jpg",
-      "synopsis": "GARAK IS LOVE. GARAK IS LIFE."
+      "pageCount": "269",
+      "coverimg": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Astitchintimecover.jpg/200px-Astitchintimecover.jpg",
+      "synopsis": "GARAK IS LOVE. GARAK IS LIFE.",
+      "rating": 5
     },
     {
-      "title": "Farenheit 451",
-      "author": "Ray Bradbury",
-      "synopsis": "Things Happen!",
-      "publishPage": "1990-01-01",
-      "coverimg": "https://thesheaf.com/wp-content/uploads/2020/01/4956476726_b48dc24dcd_o-538x850.jpg",
-      "rating": 3,
-      "pageCount": "400",
-      "id": 5
+      "title": "Test Book",
+      "author": "Person B",
+      "coverimg": "https://edit.org/images/cat/book-covers-big-2019101610.jpg",
+      "rating": 2,
+      "id": 5,
+      "publishDate": "0990-01-01",
+      "pageCount": "101"
     }
   ]
 }

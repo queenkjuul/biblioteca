@@ -4,9 +4,10 @@
     @extend %main--default-card-shadow;
     @include cardHighlight();
 
-    display: block;
+    @include flex-column(center);
     width: 180px;
     text-align: center;
+    min-height: 350px; 
 
     // overriding cardCommon value for aesthetics
     border-radius: $bookshelf-card-border-radius;
@@ -24,7 +25,8 @@
     &__coverimg {
         @extend %card__coverimg;
         display: block;
-        height: 275px;
+        max-height: 275px;
+        min-height: 250px;
         margin: 0 auto 10px;
         max-width: 100%;
 
@@ -37,6 +39,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        max-width: 100%;
     }
 
     &__author::before {
@@ -44,6 +47,7 @@
         border-top: 1px solid black;
         padding-bottom: 8px;
         display: block;
+        max-width: 100%;
     }
 
     &__author {
@@ -53,5 +57,6 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        max-width: 100%;
     }
 }

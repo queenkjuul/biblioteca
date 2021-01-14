@@ -3,7 +3,6 @@ import { useHistory } from 'react-router';
 
 // assets
 import placeholder from '../../assets/images/sadmac.png';
-import toTitleCase from './toTitleCase';
 
 // components
 import Modal from './Modal';
@@ -12,8 +11,11 @@ import Modal from './Modal';
 import axios from 'axios';
 import ReactStars from 'react-rating-stars-component';
 
+// functions
+import toTitleCase from '../utils/toTitleCase';
 
-const BookForm = ({ headerString, canDelete, book = {} }) => {
+
+const BookForm = ({ headerString, canDelete, book }) => {
     const [coverimg, setCoverimg] = useState(placeholder);
     const [modalState, setModalState] = useState(false);
     const [modal, setModal] = useState({
@@ -22,16 +24,7 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
         confirm: hideModal,
         deny: hideModal
     });
-    const [data, setData] = useState({
-        id: book.id,
-        title: (book.title ? toTitleCase(book.title) : ''),
-        author: (book.author ? toTitleCase(book.author) : ''),
-        synopsis: book.synopsis,
-        publishPage: book.publishPage,
-        publishDate: book.publishDate,
-        coverimg: book.coverimg,
-        rating: book.rating
-    })
+    const [data, setData] = useState({})
 
     const history = useHistory();
 
@@ -39,6 +32,50 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
     useEffect(() => {
         window.scrollTo(0,0);
     },[])
+    
+    useEffect(() => {
+        setData(book);
+        // if book is provided (edit mode), check if book has a cover. if it does, use it, if not, placeholder
+        setCoverimg(book ? (book.coverimg ? book.coverimg : placeholder) : placeholder);
+    }, [book])
+
+    // modal controls
+    const hideModal = (event) => {
+        event.preventDefault();
+        setModalState(false);
+    }
+
+    const confirmDelete = (event) => {
+        event.preventDefault();
+        setModalState(true);
+        setModal({
+            messageArray: ["Are you you want to delete this book?"],
+            isCritical: true,
+            confirm: deleteBook,
+            deny: hideModal
+        })
+    }
+
+    const cancelForm = (event) => {
+        event.preventDefault();
+        setModalState(true);
+        setModal({
+            messageArray: ["Are you sure you want to cancel before adding this book?"],
+            isCritical: false,
+            confirm: () => {window.history.back(); hideModal},
+            deny: hideModal
+        })
+    }
+
+    const invalidModal = (errorArray) => {
+        setModalState(true);
+        setModal({
+            messageArray: errorArray,
+            isCritical: false,
+            confirm: hideModal,
+            deny: hideModal
+        })
+    }
 
     const updateCover = (event) => {        
         event.preventDefault();
@@ -52,45 +89,7 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
         })
     }
 
-    const hideModal = (event) => {
-        event.preventDefault();
-        setModalState(false);
-    }
-
-    const confirmDelete = (event) => {
-        event.preventDefault();
-        setModalState(true);
-        setModal({
-            messageArray: ["Are you you want to delete this book?"],
-            isCritical: true,
-            confirm: hideModal,
-            deny: hideModal
-        })
-    }
-
-    const cancelForm = (event) => {
-        event.preventDefault();
-        setModalState(true);
-        setModal({
-            messageArray: ["Are you sure you want to cancel before adding this book?"],
-            isCritical: false,
-            confirm: () => {history.back(); hideModal},
-            deny: hideModal
-        })
-    }
-
-    const invalidModal = (errorArray) => {
-        setModalState(true);
-        console.log(errorArray);
-        setModal({
-            messageArray: errorArray,
-            isCritical: false,
-            confirm: hideModal,
-            deny: hideModal
-        })
-    }
-
-    const validateInput = ({title, author}) => {
+    const validateInput = ({title, author }) => {
         let errorList = [];
         let valid = true;
 
@@ -116,21 +115,30 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
             throw "There was a problem submitting the data";
         }
         
-        if (book.id) {
+        if (book && book.id) {
+            for (const property in data) {
+                if (!data[property]) {
+                    setData({...data, property: book[property]})
+                }
+            }
             axios  
             .put('http://localhost:3000/books/' + book.id, data)
-            .then(history.push('/details/' + book.id))
+            .then(() => {
+                history.push('/bookshelf');
+                location.reload();})
             .catch(submitError)
-        } else {
+        } else if (data) {
             if (validateInput(data)) {
                 axios   
                 .post('http://localhost:3000/books/', data)
                 .then((response) => {
-                    console.log(response);
                     history.push('/details/' + response.data.id);
+                    location.reload();
                 })
                 .catch(submitError)
             }
+        } else {
+            invalidModal(['Cannot save a blank record']);
         }
     }
 
@@ -140,7 +148,18 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
         setCoverimg(event.target.value);
     }
 
-
+    const deleteBook = () => {
+        axios
+        .delete('http://localhost:3000/books/' + book.id)
+        .then(() => {
+            history.push('/bookshelf');
+            location.reload();
+        })
+        .catch((error) => {
+            console.log(error);
+            throw "Error deleting book"
+        })
+    }
 
     return (
         <>
@@ -162,7 +181,7 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
                     type="text" 
                     name="title" 
                     id="title" 
-                    defaultValue={book.title || ``} 
+                    defaultValue={book ? book.title : ''} 
                     onChange={(e) => setData({...data, title: e.target.value})}
                     required
                 />
@@ -173,7 +192,7 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
                     type="text" 
                     name="author" 
                     id="author" 
-                    defaultValue={book.author || ``}
+                    defaultValue={book ? book.author : ''}
                     onChange={(e) => setData({...data, author: e.target.value})}
                     required >
                 </input>
@@ -188,7 +207,7 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
                     id="synopsis" 
                     name="synopsis" 
                     type="text"
-                    defaultValue={book.synopsis || ``}
+                    defaultValue={book ? book.synopsis : ''}
                     onChange={(e) => setData({...data, synopsis: e.target.value})}
                 >
                 </textarea>
@@ -200,23 +219,26 @@ const BookForm = ({ headerString, canDelete, book = {} }) => {
                         type="date" 
                         id="publishDate" 
                         name="publishDate" 
-                        defaultValue={book.publishDate || ``}
-                        onChange={(e) => setData({...data, publishPage: e.target.value})}
+                        defaultValue={book ? book.publishDate : ''}
+                        onChange={(e) => setData({...data, publishDate: e.target.value})}
                     />
                     <label className="book-form__label--pageCount " htmlFor="pageCount">Pages:</label>
                     <input 
                         className="book-form__input--pageCount" 
                         type="number" 
                         id="pageCount" 
-                        name="pageCount" 
-                        defaultValue={book.pageCount || ``}
+                        name="pageCount"
+                        min="0" 
+                        defaultValue={book ? book.pageCount : ''}
                         onChange={(e) => setData({...data, pageCount: e.target.value})}
                     />
                 </div>
 
                 <label className="book-form__label--rating">Rating:</label>
                 <ReactStars 
+                    key={book ? book.rating : 0}
                     count={5}
+                    value={book ? book.rating : 0}
                     onChange={(e) => setData({...data, rating: e})}
                     size={32}
                     activeColor="orange"/>

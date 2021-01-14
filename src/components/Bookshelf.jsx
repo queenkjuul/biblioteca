@@ -42,6 +42,12 @@ const Bookshelf = () => {
         setBooks(getBooks(query));
     }, [])
 
+    useEffect(() => {
+        return (() => {
+            setBooks([]);
+        })
+    },[])
+
     return (
         <div className="grey-background">
             <h1 className="pagetitle">Release the Kraken of Knowledge!</h1>

@@ -25,7 +25,6 @@ const Details = () => {
         .get('http://localhost:3000/books/' + id)
         .then((response) => {
             setBook(response.data);
-            this.forceUpdate();
         })
         .catch((error) => {
             console.log(error);
@@ -55,7 +54,7 @@ const Details = () => {
                         <p>{synopsis ? synopsis : "No details provided"}</p>
                     </section>
                 <section className="details__controls">
-                    <Link className="btn" to="/edit/1">Edit Book</Link>
+                    <Link className="btn" to={'/edit/' + id}>Edit Book</Link>
                     <Link className="btn btn--secondary details__back" to="/bookshelf">Back to Bookshelf</Link>
                 </section>
             </article>
