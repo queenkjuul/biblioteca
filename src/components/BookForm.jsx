@@ -89,7 +89,9 @@ const BookForm = ({ headerString, canDelete, book }) => {
         })
     }
 
-    const validateInput = ({title, author }) => {
+    // form submission functions
+    const validateInput = ({title, author}) => {
+        // an array was used to make this able to validate multiple inputs, but only title and author are needed for AC
         let errorList = [];
         let valid = true;
 
@@ -161,6 +163,7 @@ const BookForm = ({ headerString, canDelete, book }) => {
         })
     }
 
+    // render page
     return (
         <>
         {modalState ? 

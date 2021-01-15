@@ -21,7 +21,7 @@
       "synopsis": "SOMA!"
     },
     {
-      "title": "Hitchiker's Guide",
+      "title": "The Hitchhiker's Guide to the Galaxy",
       "author": "Douglas Adams",
       "coverimg": "https://api.time.com/wp-content/uploads/2014/10/hitchhiker-s-guide-douglas-adams-657242_451_700.jpg",
       "rating": 5,
@@ -48,6 +48,15 @@
       "id": 5,
       "publishDate": "0990-01-01",
       "pageCount": "101"
+    },
+    {
+      "title": "Test Book",
+      "synopsis": "Things and whatnot",
+      "publishDate": "0001-01-01",
+      "pageCount": "1",
+      "rating": 3,
+      "author": "Writer",
+      "id": 6
     }
   ]
 }

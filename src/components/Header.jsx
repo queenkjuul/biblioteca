@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router';
+
 
 
 const activeClass = "navbar__menu-button--active";
 
 const Header = () => {
 
-    const [menuOpen, setMenuOpen] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const history = useHistory();
 
     useEffect(() => {
         setMenuOpen(false);
@@ -20,7 +25,11 @@ const Header = () => {
         setMenuOpen(!menuOpen);
     }
 
-    const searchBookshelf = () => {
+    const searchBookshelf = (event) => {
+        event.preventDefault();
+        console.log(searchTerm);
+        history.push('/bookshelf/' + searchTerm);
+        location.reload();
     }
 
     return (
@@ -42,7 +51,7 @@ const Header = () => {
                         activeClassName={activeClass} 
                         id="bookshelf" 
                         className="navbar__menu-button" 
-                        to="/bookshelf">
+                        to="/bookshelf/">
                             Bookshelf
                     </NavLink>
                 </li>
@@ -63,6 +72,7 @@ const Header = () => {
                     name="navbar__search"
                     id="navbar__search" 
                     placeholder="Search for book or author" 
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button 
                     className="navbar__menu-button--search" 
