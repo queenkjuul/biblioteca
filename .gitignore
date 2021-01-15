@@ -12,3 +12,4 @@ src/BookshelfLegacy.jsx
 generateBooks.js
 generateHeader.js
 legacyHTML/
+.VSCodeCounter/
