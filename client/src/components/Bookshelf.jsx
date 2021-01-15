@@ -53,16 +53,17 @@ const Bookshelf = () => {
             <h1 className="pagetitle">Release the Kraken of Knowledge!</h1>
             <section className="bookshelf__container" id="bookshelf__container">
                 {books ? 
-                    books.map((book, i) => (
-                        <BookshelfCard
-                            key={i}
-                            id={book.id}
-                            title={book.title}
-                            author={book.author}
-                            synopsis={book.synopsis}
-                            coverimg={book.coverimg}
-                        />
-                    )) : 
+                    (books.length ?
+                        books.map((book, i) => (
+                            <BookshelfCard
+                                key={i}
+                                id={book.id}
+                                title={book.title}
+                                author={book.author}
+                                synopsis={book.synopsis}
+                                coverimg={book.coverimg}
+                            />
+                        )) : <h2>No books found!</h2>) : 
                     <h2>No books found!</h2>
                 }
             </section>

@@ -3,12 +3,8 @@ dist/
 node_modules/
 .cache/ 
 .vscode/
-
-# I had written this class component during class as an experiment
-# I am refactoring it as a functional component, but want to keep it 
-# in the project folder for reference
-
-src/BookshelfLegacy.jsx 
-generateBooks.js
-generateHeader.js
-legacyHTML/
+.env
+client/node_modules/
+client/dist/
+client/.cache
+.VSCodeCounter/
