@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
+const { sequelize } = require('./models');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -23,6 +24,8 @@ app.get('/', (req, res) => {
     res.send('GET request from root route');
 })
 
-app.listen(PORT, () => {
-    console.log(`API server listening on http://localhost:${PORT}!`);
+sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+        console.log(`API server listening on http://localhost:${PORT}!`);
+    });
 });
