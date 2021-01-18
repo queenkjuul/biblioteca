@@ -1,9 +1,10 @@
-{
+module.exports = {
   "development": {
-    "username": "sql3387236",
-    "password": "nQjNTyiLdH",
-    "database": "sql3387236",
-    "host": "sql3.freesqldatabase.com",
+    "username": process.env.DB_USERNAME,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_DATABASE,
+    "host": process.env.DB_HOST,
+    "port": process.env.DB_PORT,
     "dialect": "mysql"
   },
   "test": {
