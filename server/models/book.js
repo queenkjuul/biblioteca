@@ -52,7 +52,11 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Book.associate = models => {
-        Book.hasOne(models.Author);
+        Book.belongsTo(models.Author, {
+            foreignKey: {
+                allowNull: false,
+            },
+        });
     }
 
     return Book;
