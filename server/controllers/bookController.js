@@ -1,4 +1,6 @@
-const { Book, Author } = require('../models');
+const { Book, Author, sequelize } = require('../models');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
     findAll: (req, res) => {
@@ -16,7 +18,18 @@ module.exports = {
         .catch((err) => {console.log(err); res.status(500).json(err)});
     },
     search: (req, res) => {
-        // Book.findAll()
+        query = req.params.query;
+        results = [];
+        Book.findAll({
+            where: {
+                [Op.or]: [
+                    { 'title': { [Op.like]: `%${query}%` }},
+                    { '$Author.name$': { [Op.like]: `%${query}%`}}
+                ]
+            },
+            include: [Author],
+        })
+        .then((results) => {res.status(200).json(results)});
     },
     create: (req, res) => {
         const { 

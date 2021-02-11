@@ -10,7 +10,7 @@ router.route('/:id')
     .put(bookController.update)
     .delete(bookController.delete);
 
-router.route('/q=:query')
+router.route('/search/:query')
     .get(bookController.search);
 
 module.exports = router;
