@@ -27,7 +27,6 @@ const Header = () => {
 
     const searchBookshelf = (event) => {
         event.preventDefault();
-        console.log(searchTerm);
         history.push('/bookshelf/' + searchTerm);
         location.reload();
     }

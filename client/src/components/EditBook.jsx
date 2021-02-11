@@ -26,7 +26,7 @@ const EditBook = () => {
 
     const getBook = (id) => {
         axios
-        .get('http://localhost:3000/books/' + id)
+        .get('http://localhost:8080/api/books/' + id)
         .then((response) => {
             setBook(response.data);
         })

@@ -124,7 +124,7 @@ const BookForm = ({ headerString, canDelete, book }) => {
                 }
             }
             axios  
-            .put('http://localhost:3000/books/' + book.id, data)
+            .put('http://localhost:8080/api/books/' + book.id, data)
             .then(() => {
                 history.push('/bookshelf');
                 location.reload();})
@@ -132,7 +132,7 @@ const BookForm = ({ headerString, canDelete, book }) => {
         } else if (data) {
             if (validateInput(data)) {
                 axios   
-                .post('http://localhost:3000/books/', data)
+                .post('http://localhost:8080/api/books/', data)
                 .then((response) => {
                     history.push('/details/' + response.data.id);
                     location.reload();
@@ -152,7 +152,7 @@ const BookForm = ({ headerString, canDelete, book }) => {
 
     const deleteBook = () => {
         axios
-        .delete('http://localhost:3000/books/' + book.id)
+        .delete('http://localhost:8080/api/books/' + book.id)
         .then(() => {
             history.push('/bookshelf');
             location.reload();
@@ -195,7 +195,7 @@ const BookForm = ({ headerString, canDelete, book }) => {
                     type="text" 
                     name="author" 
                     id="author" 
-                    defaultValue={book ? book.author : ''}
+                    defaultValue={book ? (book.Author ? book.Author.name : '') : ''}
                     onChange={(e) => setData({...data, author: e.target.value})}
                     required >
                 </input>

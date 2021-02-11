@@ -22,7 +22,7 @@ const Details = () => {
 
     const getBook = (id) => {
         axios
-        .get('http://localhost:3000/books/' + id)
+        .get('http://localhost:8080/api/books/' + id)
         .then((response) => {
             setBook(response.data);
         })
@@ -33,7 +33,7 @@ const Details = () => {
     }
 
     
-    const { title, author, synopsis, rating, coverimg, publishDate, pageCount } = book;
+    const { title, synopsis, rating, coverimg, publishDate, pageCount, Author } = book;
     
     return (
         <main className="details__container">
@@ -47,7 +47,7 @@ const Details = () => {
                         : '' }
                     </div>
                 </section>
-                    <section className="details__author">{author ? author : "Unknown Author"}</section>
+                    <section className="details__author">{Author ? Author.name : "Unknown Author"}</section>
                     <section className="details__publishDate">Published: {publishDate ? publishDate : "Unknown"}</section>
                     <section className="details__pageCount">{pageCount ? pageCount : "Unknown"} pages</section>
                     <section className="details__synopsis">

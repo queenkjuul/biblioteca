@@ -28,7 +28,7 @@ const Bookshelf = () => {
 
     const getBooks = (searchterm) => {
         axios   
-            .get('http://localhost:3000/books/' + (searchterm ? '?q=' + searchterm : ''))
+            .get((searchterm ? 'http://localhost:8080/api/books/search/' + searchterm : 'http://localhost:8080/api/books/'))
             .then((response) => {
                 setBooks(response.data);
             })
@@ -59,7 +59,7 @@ const Bookshelf = () => {
                                 key={i}
                                 id={book.id}
                                 title={book.title}
-                                author={book.author}
+                                author={book.Author.name}
                                 synopsis={book.synopsis}
                                 coverimg={book.coverimg}
                             />
