@@ -16,7 +16,7 @@ module.exports = {
         .catch((err) => {console.log(err); res.status(500).json(err)});
     },
     search: (req, res) => {
-        Book.findAll()
+        // Book.findAll()
     },
     create: (req, res) => {
         const { 
