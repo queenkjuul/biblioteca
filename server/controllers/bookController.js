@@ -53,11 +53,43 @@ module.exports = {
         .catch((err) => {console.log(err); res.status(422).json(err)});
     },
     update: (req, res) => {
-        Book.update(req.body, {
-            where: {id: req.params.id},
+        const { 
+            title, 
+            synopsis, 
+            pageCount, 
+            rating, 
+            publishDate, 
+            coverimg, 
+            author} = req.body;
+        newBook = {
+            title,
+            synopsis,
+            pageCount,
+            rating,
+            publishDate,
+            coverimg,
+        }
+        Author.findOrCreate({
+            where: { name: author },
+            defaults: { name: author },
         })
-        .then(() => res.end())
-        .catch((err) => {console.log(err); res.status(422).json(err)});
+        .then((authors) => {
+            newBook = { ...newBook, AuthorId: authors[0].dataValues.id };
+        })
+        .then(() => {
+            Book.update(newBook, {
+                where: {id: req.params.id},
+            })
+            .then((book) => {
+                console.log(book);
+                Book.findByPk(book, { include: [Author] })
+                .then((item) => {console.log(item)});
+                res.json(Book.findByPk(book));
+            })
+            .catch((err) => {console.log(err); res.status(422).json(err)});
+        })
+        .catch((err) => {console.log(err); res.status(500).json(err)});
+        
     },
     delete: (req, res) => {
         Book.destroy({
