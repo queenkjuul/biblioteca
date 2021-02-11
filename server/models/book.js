@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize")
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     const Book = sequelize.define('Book', {
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 len: [0, 2000],
             },
-        },
+        }
     },
     {
         paranoid: true,

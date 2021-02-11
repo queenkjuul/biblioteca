@@ -16,11 +16,40 @@ module.exports = {
         .catch((err) => {console.log(err); res.status(500).json(err)});
     },
     search: (req, res) => {
-        
+        Book.findAll()
     },
     create: (req, res) => {
-        Book.create(req.body)
-        .then((book) => res.json(book))
+        const { 
+            title, 
+            synopsis, 
+            pageCount, 
+            rating, 
+            publishDate, 
+            coverimg, 
+            author} = req.body;
+        newBook = {
+            title,
+            synopsis,
+            pageCount,
+            rating,
+            publishDate,
+            coverimg,
+        }
+        console.log(req.body);
+        Author.findOrCreate({
+            where: { name: author },
+            defaults: { name: author },
+        })
+        .then((res) => {
+            console.log(res[0].dataValues.id);
+            newBook = { ...newBook, AuthorId: res[0].dataValues.id };
+            console.log(newBook);
+        })
+        .then(() => {
+            Book.create(newBook)
+            .then((book) => res.json(book))
+            .catch((err) => {console.log(err); res.status(422).json(err)});
+        })
         .catch((err) => {console.log(err); res.status(422).json(err)});
     },
     update: (req, res) => {
