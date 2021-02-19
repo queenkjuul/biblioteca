@@ -5,6 +5,7 @@ const cors = require('cors');
 const { sequelize } = require('./models');
 const app = express();
 const PORT = process.env.PORT || 8080;
+const routes = require('./routes');
 
 const corsOptions = {
     origin: 'http://localhost:1234',
@@ -21,9 +22,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../client/dist'));
 }
 
-app.get('/', (req, res) => {
-    res.send('GET request from root route');
-})
+app.use(routes);
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
