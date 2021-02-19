@@ -19,8 +19,7 @@ module.exports = {
         .catch((err) => {console.log(err); res.status(500).json(err)});
     },
     search: (req, res) => {
-        query = req.params.query;
-        results = [];
+        let query = req.params.query;
         Book.findAll({
             where: {
                 [Op.or]: [
@@ -30,36 +29,16 @@ module.exports = {
             },
             include: [Author],
         })
-        .then((results) => {res.status(200).json(results)});
+        .then((results = []) => {res.status(200).json(results)});
     },
     create: (req, res) => {
-        const { 
-            title, 
-            synopsis, 
-            pageCount, 
-            rating, 
-            publishDate, 
-            coverimg, 
-            author} = req.body;
-        newBook = {
-            title,
-            synopsis,
-            pageCount,
-            rating,
-            publishDate,
-            coverimg,
-        }
-        console.log(req.body);
+        const { author } = req.body;
         Author.findOrCreate({
             where: { name: author },
             defaults: { name: author },
         })
-        .then((res) => {
-            console.log(res[0].dataValues.id);
-            newBook = { ...newBook, AuthorId: res[0].dataValues.id };
-            console.log(newBook);
-        })
-        .then(() => {
+        .then((res) => ({ ...req.body, AuthorId: res[0].dataValues.id }))
+        .then((newBook) => {
             Book.create(newBook)
             .then((book) => res.json(book))
             .catch((err) => {console.log(err); res.status(422).json(err)});
