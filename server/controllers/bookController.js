@@ -46,30 +46,13 @@ module.exports = {
         .catch((err) => {console.log(err); res.status(422).json(err)});
     },
     update: (req, res) => {
-        const { 
-            title, 
-            synopsis, 
-            pageCount, 
-            rating, 
-            publishDate, 
-            coverimg, 
-            author} = req.body;
-        newBook = {
-            title,
-            synopsis,
-            pageCount,
-            rating,
-            publishDate,
-            coverimg,
-        }
+        const { author } = req.body;
         Author.findOrCreate({
             where: { name: author },
             defaults: { name: author },
         })
-        .then((authors) => {
-            newBook = { ...newBook, AuthorId: authors[0].dataValues.id };
-        })
-        .then(() => {
+        .then((authors) => ({ ...req.body, AuthorId: authors[0].dataValues.id }))
+        .then((newBook) => {
             Book.update(newBook, {
                 where: {id: req.params.id},
             })

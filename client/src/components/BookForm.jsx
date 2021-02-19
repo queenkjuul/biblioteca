@@ -34,7 +34,12 @@ const BookForm = ({ headerString, canDelete, book }) => {
     },[])
     
     useEffect(() => {
-        setData(book);
+        if (book && book.Author) {
+            setData({
+                ...book,
+                author: book.Author.name 
+            });
+        }
         // if book is provided (edit mode), check if book has a cover. if it does, use it, if not, placeholder
         setCoverimg(book ? (book.coverimg ? book.coverimg : placeholder) : placeholder);
     }, [book])
