@@ -1,6 +1,7 @@
-const { Book, Author, sequelize } = require('../models');
+const { Book, Author } = require('../models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+
 
 module.exports = {
     findAll: (req, res) => {
