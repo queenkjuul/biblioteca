@@ -9,32 +9,32 @@ import ReactStars from 'react-rating-stars-component';
 const Details = () => {
 
     useEffect(() => {
-        window.scrollTo(0,0);
-    },[])
+        window.scrollTo(0, 0);
+    }, [])
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [book, setBook] = useState({});
 
     useEffect(() => {
         getBook(id);
-    },[])
+    }, [])
 
     const getBook = (id) => {
         axios
-        .get('http://localhost:8080/api/books/' + id)
-        .then((response) => {
-            setBook(response.data);
-        })
-        .catch((error) => {
-            console.log(error);
-            throw "There was a problem retrieving the book";
-        })
+            .get('http://localhost:8080/api/books/' + id)
+            .then((response) => {
+                setBook(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                throw "There was a problem retrieving the book";
+            })
     }
 
-    
+
     const { title, synopsis, rating, coverimg, publishDate, pageCount, Author } = book;
-    
+
     return (
         <main className="details__container">
             <article className="details__card">
@@ -43,16 +43,16 @@ const Details = () => {
                     <img className="details__coverimg" src={coverimg ? coverimg : placeholder} alt={"Cover of the book " + title} />
                     <div className="details__rating">
                         {rating ?
-                            <ReactStars count={5} value={rating} size={40} edit={false} activeColor="orange"/>
-                        : '' }
+                            <ReactStars count={5} value={rating} size={40} edit={false} activeColor="orange" />
+                            : ''}
                     </div>
                 </section>
-                    <section className="details__author">{Author ? Author.name : "Unknown Author"}</section>
-                    <section className="details__publishDate">Published: {publishDate ? publishDate : "Unknown"}</section>
-                    <section className="details__pageCount">{pageCount ? pageCount : "Unknown"} pages</section>
-                    <section className="details__synopsis">
-                        <p>{synopsis ? synopsis : "No details provided"}</p>
-                    </section>
+                <section className="details__author">{Author ? Author.name : "Unknown Author"}</section>
+                <section className="details__publishDate">Published: {publishDate ? publishDate : "Unknown"}</section>
+                <section className="details__pageCount">{pageCount ? pageCount : "Unknown"} pages</section>
+                <section className="details__synopsis">
+                    <p>{synopsis ? synopsis : "No details provided"}</p>
+                </section>
                 <section className="details__controls">
                     <Link className="btn" to={'/edit/' + id}>Edit Book</Link>
                     <Link className="btn btn--secondary details__back" to="/bookshelf">Back to Bookshelf</Link>

@@ -1,77 +1,115 @@
 const { Book, Author } = require('../models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+const axios = require('axios');
 
 
 module.exports = {
     findAll: (req, res) => {
-        Book.findAll({
-            include: [Author],
-        })
-        .then((book) => res.json(book))
-        .catch((err) => {console.log(err); res.status(500).json(err)});
+        axios
+            .get('http://localhost:3000/books')
+            .then((response) => {
+                return response.data;
+            })
+            .then((results) => res.status(200).json(results))
+            .catch((err) => { console.log(err); res.status(500).json(err) });
+
+        // old sequelize code retained for posterity
+        // Book.findAll({
+        //     include: [Author],
+        // })
+        //     .then((book) => res.json(book))
+        //     .catch((err) => { console.log(err); res.status(500).json(err) });
     },
     findById: (req, res) => {
-        Book.findByPk(req.params.id, {
-            include: [Author],
-        })
-        .then((book) => res.json(book))
-        .catch((err) => {console.log(err); res.status(500).json(err)});
+        axios
+            .get('http://localhost:3000/books/' + req.params.id)
+            .then((book) => res.status(200).json(book.data))
+            .catch((err) => { console.log(err); res.status(500).json(err) });
+
+        // old sequelize code retained for posterity
+        // Book.findByPk(req.params.id, {
+        //     include: [Author],
+        // })
+        //     .then((book) => res.json(book))
+        //     .catch((err) => { console.log(err); res.status(500).json(err) });
     },
     search: (req, res) => {
         let query = req.params.query;
-        Book.findAll({
-            where: {
-                [Op.or]: [
-                    { 'title': { [Op.like]: `%${query}%` }},
-                    { '$Author.name$': { [Op.like]: `%${query}%`}}
-                ]
-            },
-            include: [Author],
-        })
-        .then((results = []) => {res.status(200).json(results)});
+        axios
+            .get('http://localhost:3000/books?q=' + query)
+            .then((response) => {
+                return response.data;
+            })
+            .then((results = []) => { res.status(200).json(results) });
+
+        // old sequelize code retained for posterity
+        // Book.findAll({
+        //     where: {
+        //         [Op.or]: [
+        //             { 'title': { [Op.like]: `%${query}%` } },
+        //             { '$Author.name$': { [Op.like]: `%${query}%` } }
+        //         ]
+        //     },
+        //     include: [Author],
+        // })
+        //     .then((results = []) => { res.status(200).json(results) });
     },
     create: (req, res) => {
-        const { author } = req.body;
-        Author.findOrCreate({
-            where: { name: author },
-            defaults: { name: author },
-        })
-        .then((res) => ({ ...req.body, AuthorId: res[0].dataValues.id }))
-        .then((newBook) => {
-            Book.create(newBook)
-            .then((book) => res.json(book))
-            .catch((err) => {console.log(err); res.status(422).json(err)});
-        })
-        .catch((err) => {console.log(err); res.status(422).json(err)});
+        const { book } = req.body;
+        console.log(req.body);
+        axios
+            .post('http://localhost:3000/books/', req.body)
+            .then(results => res.status(200).json('ok'))
+            .catch((err) => { console.log(err); res.status(500).json(err) });
+
+        // old sequelize code retained for posterity
+        // const { author } = req.body;
+        // Author.findOrCreate({
+        //     where: { name: author },
+        //     defaults: { name: author },
+        // })
+        //     .then((res) => ({ ...req.body, AuthorId: res[0].dataValues.id }))
+        //     .then((newBook) => {
+        //         Book.create(newBook)
+        //             .then((book) => res.json(book))
+        //             .catch((err) => { console.log(err); res.status(422).json(err) });
+        //     })
+        //     .catch((err) => { console.log(err); res.status(422).json(err) });
     },
     update: (req, res) => {
-        const { author } = req.body;
-        Author.findOrCreate({
-            where: { name: author },
-            defaults: { name: author },
-        })
-        .then((authors) => ({ ...req.body, AuthorId: authors[0].dataValues.id }))
-        .then((newBook) => {
-            Book.update(newBook, {
-                where: {id: req.params.id},
-            })
-            .then((book) => {
-                console.log(book);
-                Book.findByPk(book, { include: [Author] })
-                .then((item) => {console.log(item)});
-                res.json(Book.findByPk(book));
-            })
-            .catch((err) => {console.log(err); res.status(422).json(err)});
-        })
-        .catch((err) => {console.log(err); res.status(500).json(err)});
-        
+        axios
+            .post('http://localhost:3000/books/' + req.params.id, req.body)
+            .then(results => res.status(200).json('ok'))
+            .catch((err) => { console.log(err); res.status(500).json(err) });
+        // const { author } = req.body;
+        // Author.findOrCreate({
+        //     where: { name: author },
+        //     defaults: { name: author },
+        // })
+        //     .then((authors) => ({ ...req.body, AuthorId: authors[0].dataValues.id }))
+        //     .then((newBook) => {
+        //         Book.update(newBook, {
+        //             where: { id: req.params.id },
+        //         })
+        //             .then((book) => {
+        //                 console.log(book);
+        //                 Book.findByPk(book, { include: [Author] })
+        //                     .then((item) => { console.log(item) });
+        //                 res.json(Book.findByPk(book));
+        //             })
+        //             .catch((err) => { console.log(err); res.status(422).json(err) });
+        //     })
+        //     .catch((err) => { console.log(err); res.status(500).json(err) });
     },
     delete: (req, res) => {
-        Book.destroy({
-            where: {id: req.params.id},
-        })
-        .then(() => res.end())
-        .catch((err) => {console.log(err); res.status(500).json(err)});
+        axios.delete('http://localhost:3000/books/' + req.params.id)
+            .then((result) => res.status(200).json('ok'))
+            .catch((err) => { console.log(err); res.status(500).json(err) });
+        // Book.destroy({
+        //     where: { id: req.params.id },
+        // })
+        //     .then(() => res.end())
+        //     .catch((err) => { console.log(err); res.status(500).json(err) });
     }
 }
