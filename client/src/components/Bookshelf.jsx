@@ -8,6 +8,7 @@ import {
     useParams,
     useRouteMatch
 } from 'react-router-dom';
+import { SpinnerCircular } from 'spinners-react';
 
 // Node dependencies
 import axios from 'axios';
@@ -24,6 +25,7 @@ const Bookshelf = () => {
 
 
     const [books, setBooks] = useState([]);
+    const [spinning, setSpinning] = useState([]);
     const { query } = useParams();
 
     const getBooks = (searchterm) => {
@@ -31,9 +33,11 @@ const Bookshelf = () => {
             .get((searchterm ? 'http://localhost:8080/api/books/search/' + searchterm : 'http://localhost:8080/api/books/'))
             .then((response) => {
                 setBooks(response.data);
+                setSpinning(false);
             })
             .catch((error) => {
                 console.log(error);
+                setSpinning(false);
                 throw "There was a problem retrieving the book list";
             })
     }
@@ -64,7 +68,12 @@ const Bookshelf = () => {
                                 coverimg={book.coverimg}
                             />
                         )) : <h2>No books found!</h2>) :
-                    <h2>No books found!</h2>
+                    spinning
+                        ? <SpinnerCircular
+                            enabled={spinning}
+                            color={'#5ca1d3'}
+                            size={100}></SpinnerCircular>
+                        : <h2>No books found!</h2>
                 }
             </section>
         </div>
