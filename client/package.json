@@ -1,24 +1,26 @@
 {
-  "name": "library1",
+  "name": "biblioteca",
   "version": "1.0.0",
-  "description": "## Instructions:",
+  "description": "demo CRUD app using React, Express, Sequelize",
   "main": "index.js",
+  "source": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "parcel index.html",
     "start:dev": "parcel index.html --open",
+    "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TechtonicAcademy/library-phase-one-assignment-2020-jhillTechtonic.git"
+    "url": "git+https://github.com/queenkjuul/biblioteca.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TechtonicAcademy/library-phase-one-assignment-2020-jhillTechtonic/issues"
+    "url": "https://github.com/queenkjuul/biblioteca/issues"
   },
-  "homepage": "https://github.com/TechtonicAcademy/library-phase-one-assignment-2020-jhillTechtonic#readme",
+  "homepage": "https://juliehill.rocks",
   "dependencies": {
     "assets": "^3.0.1",
     "axios": "^0.21.0",
