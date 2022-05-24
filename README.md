@@ -1,27 +1,15 @@
-# Library-Phase-One-Assignment-2020
+# La Biblioteca
 
-## Running This Code
+A feature complete CRUD app written from scratch using React, SASS, Express, Sequelize, and MySQL. Originally written for a class assignment, it is here for posterity and for potential employers. 
 
-    npm install
-    npm start
-    // everything should be taken care of for you already :)
+## Running the code
 
-## Instructions:
+I intend to get this deployed to DigitalOcean under my own website domain, but I am not sure how quickly this will happen. You can start the local dev server by cloning the repo and running: 
+    cd server
+    npm run start:dev
 
-- Clone this repository into your local `~/code` directory.
+## About the code
 
-- Initialize npm in your new local repository.
+The project was written in stages, first with `json-server` to simulate a backend, then with Express calling a cloud-based MySQL server. However, my license to access the MySQL instance expired when I finished the class, and I do not want to deal with the headache of self-hosting a MySQL instance nor paying for one from DO, so I am using LowDB as a replacement. The original Sequelize code and MySQL config is left for demonstrating competence. 
 
-- Install the `parcel-bundler` npm package.
-
-- Create your file structure. [See example structure here](https://docs.google.com/document/d/11NtcCcDG2fkXCbgA2YRrK77mt9W42mSo2Tq8AahwtUk/edit).
-
-- Add, commit, and push your initial changes.
-
-- Build out your HTML structure and BEM + SCSS styling, based on the [Library Project Wireframes](https://drive.google.com/drive/folders/1z8iGpt6CXeVkP9Ii7sbFsvrQQXSX8mDv).
-
-- Remember to view your code locally using Parcel; without it your SCSS won’t work!
-
-- Note: No JavaScript functionality should be completed in Phase I; the focus should be on building out static HTML structure and reusable, best-practices styles using BEM + SCSS.
-
-- **HINT:** Run `parcel *.html` through your command line. This will allow you to access each of your HTML files from the browser via http://localhost:1234/filenamehere.html.
+The database will reset to a default state every 30 minutes to prevent vandalism. This may interrupt your ability to test all four CRUD functions. 
