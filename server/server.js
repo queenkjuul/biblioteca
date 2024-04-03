@@ -10,7 +10,7 @@ const env = process.env.NODE_ENV || "development"
 const config = require(__dirname + "/config/config.js")[env]
 
 const corsOptions = {
-  origin: "http://localhost:1234",
+  origin: config.origin,
 }
 
 app.use(logger("dev"))
