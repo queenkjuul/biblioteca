@@ -10,6 +10,8 @@ A feature complete CRUD app written from scratch using React, SASS, Express, Seq
 
 Reloading the Bookshelf page will crash the app when running from the web. You must go back to the homepage URL and refresh. It works locally, not sure what broke between dev and prod
 
+Search is broken. It worked once upon a time, I promise. Something is broken with the router.
+
 ## Running the code
 
 You can start the local dev server by cloning the repo and running:
