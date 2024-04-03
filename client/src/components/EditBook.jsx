@@ -1,48 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import {
-    BrowserRouter as 
-    Router,
-    Switch,
-    Route,
-    useParams,
-    useRouteMatch
-} from 'react-router-dom';
-import BookForm from './BookForm';
-import axios from 'axios';
-
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import BookForm from "./BookForm"
 
 const EditBook = () => {
-    const [book, setBook] = useState({});
-    let headerString = "Edit Book";
-    const { id } = useParams();
-    
-    useEffect(() => {
-        getBook(id);
-    },[])
+  const [book, setBook] = useState({})
+  let headerString = "Edit Book"
+  const { id } = useParams()
 
-    useEffect(() => {
-        window.scrollTo(0,0);
-    },[])
+  useEffect(() => {
+    getBook(id)
+  }, [])
 
-    const getBook = (id) => {
-        axios
-        .get('http://localhost:8080/api/books/' + id)
-        .then((response) => {
-            setBook(response.data);
-        })
-        .catch((error) => {
-            console.log(error);
-            throw "There was a problem retrieving the book";
-        })
-    }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
-    return (
-        <BookForm 
-            headerString={headerString}
-            canDelete={true}
-            book={book}
-        />
-    )
+  const getBook = (id) => {
+    axios
+      .get(process.env.API_URL + "/api/books/" + id)
+      .then((response) => {
+        setBook(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+        throw "There was a problem retrieving the book"
+      })
+  }
+
+  return <BookForm headerString={headerString} canDelete={true} book={book} />
 }
 
-export default EditBook;
+export default EditBook

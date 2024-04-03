@@ -9,10 +9,8 @@ const Footer = () => {
         <br />
         Try it on mobile!
         <br />
-        <a href="https://www.linkedin.com/in/julie-hill-3099811b9/">
-          LinkedIn
-        </a>{" "}
-        |<a href="https://github.com/queenkjuul"> Github</a>
+        <a href="https://www.linkedin.com/in/juliehill606/">LinkedIn</a> |
+        <a href="https://github.com/queenkjuul"> Github</a>
       </span>
       <br />
       <br></br>
