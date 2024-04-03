@@ -9,14 +9,14 @@
     "build": "cd ../client && npm run build",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"json-server --watch db.json\" \"npm run client\"",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"json-server --watch ../db.json\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.8",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
