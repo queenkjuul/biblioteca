@@ -2,8 +2,9 @@ const { Book, Author } = require("../models")
 const Sequelize = require("sequelize")
 const Op = Sequelize.Op
 const axios = require("axios")
-
-const API_URL = "https://my-json-server.typicode.com/queenkjuul/biblioteca"
+const env = process.env.NODE_ENV || "development"
+const config = require(__dirname + "/../config/config.js")[env]
+const API_URL = config.api_url
 
 module.exports = {
   findAll: (req, res) => {
