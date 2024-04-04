@@ -8,9 +8,7 @@ A feature complete CRUD app written from scratch using React, SASS, Express, Seq
 
 ## Known Issues
 
-Reloading the Bookshelf page will crash the app when running from the web. You must go back to the homepage URL and refresh. It works locally, not sure what broke between dev and prod
-
-Search is broken. It worked once upon a time, I promise. Something is broken with the router.
+The free-tier API server spins down on inactivity. It can take over 30s to boot up on first load. 
 
 ## Running the code
 
